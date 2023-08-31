@@ -1,0 +1,451 @@
+ever@ubuntu-vm:~$ history -c
+ever@ubuntu-vm:~$ history
+    1  history
+ever@ubuntu-vm:~$ whomai
+Command 'whomai' not found, did you mean:
+  command 'whoami' from deb coreutils (8.32-4.1ubuntu1)
+Try: sudo apt install <deb name>
+ever@ubuntu-vm:~$ whoami
+ever
+ever@ubuntu-vm:~$ whoami && whoami && whoami
+ever
+ever
+ever
+ever@ubuntu-vm:~$ cd homeworks/
+ever@ubuntu-vm:~/homeworks$ mkdir hw8 && cd hw8
+ever@ubuntu-vm:~/homeworks/hw8$ touch t1
+ever@ubuntu-vm:~/homeworks/hw8$ nano t1
+ever@ubuntu-vm:~/homeworks/hw8$ chmod +x t1
+ever@ubuntu-vm:~/homeworks/hw8$ bash t1
+ever
+ever
+ever
+ever@ubuntu-vm:~/homeworks/hw8$ cat t1
+#! /bin/bash
+
+for (( i=1 ; i<=3; i++))
+	do
+		whoami
+	done
+ever@ubuntu-vm:~/homeworks/hw8$ touch t2
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ chmod +x t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+t2: line 4: =100: No such file or directory
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+t2: line 4: =100: No such file or directory
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+odds
+ever@ubuntu-vm:~/homeworks/hw8$ nano t2
+ever@ubuntu-vm:~/homeworks/hw8$ bash t2
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50
+52
+54
+56
+58
+60
+62
+64
+66
+68
+70
+72
+74
+76
+78
+80
+82
+84
+86
+88
+90
+92
+94
+96
+98
+100
+ever@ubuntu-vm:~/homeworks/hw8$ cat t2
+#! /bin/bash/
+
+odds=0
+while [ $odds -le 100 ]
+	do
+		echo "$odds"
+		let "odds+=2"
+	done
+ever@ubuntu-vm:~/homeworks/hw8$ cut --help
+Usage: cut OPTION... [FILE]...
+Print selected parts of lines from each FILE to standard output.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -b, --bytes=LIST        select only these bytes
+  -c, --characters=LIST   select only these characters
+  -d, --delimiter=DELIM   use DELIM instead of TAB for field delimiter
+  -f, --fields=LIST       select only these fields;  also print any line
+                            that contains no delimiter character, unless
+                            the -s option is specified
+  -n                      (ignored)
+      --complement        complement the set of selected bytes, characters
+                            or fields
+  -s, --only-delimited    do not print lines not containing delimiters
+      --output-delimiter=STRING  use STRING as the output delimiter
+                            the default is to use the input delimiter
+  -z, --zero-terminated    line delimiter is NUL, not newline
+      --help     display this help and exit
+      --version  output version information and exit
+
+Use one, and only one of -b, -c or -f.  Each LIST is made up of one
+range, or many ranges separated by commas.  Selected input is written
+in the same order that it is read, and is written exactly once.
+Each range is one of:
+
+  N     N'th byte, character or field, counted from 1
+  N-    from N'th byte, character or field, to end of line
+  N-M   from N'th to M'th (included) byte, character or field
+  -M    from first to M'th (included) byte, character or field
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/cut>
+or available locally via: info '(coreutils) cut invocation'
+ever@ubuntu-vm:~/homeworks/hw8$ ll
+total 16
+drwxrwxr-x 2 ever ever 4096 мая 12 18:37 ./
+drwxrwxr-x 7 ever ever 4096 мая 12 18:22 ../
+-rwxrwxr-x 1 ever ever   58 мая 12 18:27 t1*
+-rwxrwxr-x 1 ever ever   87 мая 12 18:37 t2*
+ever@ubuntu-vm:~/homeworks/hw8$ ll | cut -d=" "
+cut: the delimiter must be a single character
+Try 'cut --help' for more information.
+ever@ubuntu-vm:~/homeworks/hw8$ ll | cut -d=
+cut: you must specify a list of bytes, characters, or fields
+Try 'cut --help' for more information.
+ever@ubuntu-vm:~/homeworks/hw8$ ll | cut -d
+cut: option requires an argument -- 'd'
+Try 'cut --help' for more information.
+ever@ubuntu-vm:~/homeworks/hw8$ ll | cut -d ' ' 
+cut: you must specify a list of bytes, characters, or fields
+Try 'cut --help' for more information.
+ever@ubuntu-vm:~/homeworks/hw8$ ll | cut -d ' ' -f 1
+total
+drwxrwxr-x
+drwxrwxr-x
+-rwxrwxr-x
+-rwxrwxr-x
+ever@ubuntu-vm:~/homeworks/hw8$ ll |tail -n +2| cut -d ' ' -f 1
+drwxrwxr-x
+drwxrwxr-x
+-rwxrwxr-x
+-rwxrwxr-x
+ever@ubuntu-vm:~/homeworks/hw8$ ll |tail -n +2| cut -d ' ' -f 1 | sort | unique
+Command 'unique' not found, but can be installed with:
+sudo apt install john
+ever@ubuntu-vm:~/homeworks/hw8$ ll |tail -n +2| cut -d ' ' -f 1 | sort | uniq
+drwxrwxr-x
+-rwxrwxr-x
+ever@ubuntu-vm:~/homeworks/hw8$ ll |tail -n +2| cut -d ' ' -f 1 | sort 
+drwxrwxr-x
+drwxrwxr-x
+-rwxrwxr-x
+-rwxrwxr-x
+ever@ubuntu-vm:~/homeworks/hw8$ cat > t4
+#! /bin/bash/
+$curdir="./"
+echo $curdir
+ls -a $curdir
+if [ -d $curdir ]
+	then
+		find . -maxdepth 1 -regextype posix-extended -regex ".*\.tmp)     
+	else
+		echo "No such directory found"
+fi
+ever@ubuntu-vm:~/homeworks/hw8$ nano t4
+ever@ubuntu-vm:~/homeworks/hw8$ chmod +x t4
+ever@ubuntu-vm:~/homeworks/hw8$ ./t4
+bash: ./t4: /bin/bash/: bad interpreter: Not a directory
+ever@ubuntu-vm:~/homeworks/hw8$ nano t4
+ever@ubuntu-vm:~/homeworks/hw8$ ./t4
+./t4: line 2: =./: No such file or directory
+
+.  ..  t1  t2  t4
+ever@ubuntu-vm:~/homeworks/hw8$ ./t4
+running regex search
+ever@ubuntu-vm:~/homeworks/hw8$ cat t4
+#! /bin/bash
+
+if [ -z $1 ]
+	then
+		echo "you didn't give any argument"
+		#		$1=$(pwd)
+#		echo "no argument given,working in current directory"
+		exit
+	else
+		if [ -d $1 ]
+			then
+				echo "running regex search"
+				echo $(find . -maxdepth 1 -regextype posix-extended -regex "(.*\.tmp)||(.*\.bak)||(.*\.backup)")
+			else
+				echo "No such directory found"
+		fi
+fi
+ever@ubuntu-vm:~/homeworks/hw8$ ./t4
+you didn't give any argument
+ever@ubuntu-vm:~/homeworks/hw8$ ./t4 $(pwd)
+running regex search
+
+ever@ubuntu-vm:~/homeworks/hw8$ touch test.tmp test.bak test.backup
+ever@ubuntu-vm:~/homeworks/hw8$ ll
+total 20
+drwxrwxr-x 2 ever ever 4096 мая 12 19:42 ./
+drwxrwxr-x 7 ever ever 4096 мая 12 18:22 ../
+-rwxrwxr-x 1 ever ever   58 мая 12 18:27 t1*
+-rwxrwxr-x 1 ever ever   87 мая 12 18:37 t2*
+-rwxrwxr-x 1 ever ever  363 мая 12 19:40 t4*
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.backup
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.bak
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.tmp
+ever@ubuntu-vm:~/homeworks/hw8$ ./t4 $(pwd)
+running regex search
+./test.bak ./test.tmp ./test.backup
+ever@ubuntu-vm:~/homeworks/hw8$ nano t4
+ever@ubuntu-vm:~/homeworks/hw8$ find --help
+Usage: find [-H] [-L] [-P] [-Olevel] [-D debugopts] [path...] [expression]
+
+default path is the current directory; default expression is -print
+expression may consist of: operators, options, tests, and actions:
+operators (decreasing precedence; -and is implicit where no others are given):
+      ( EXPR )   ! EXPR   -not EXPR   EXPR1 -a EXPR2   EXPR1 -and EXPR2
+      EXPR1 -o EXPR2   EXPR1 -or EXPR2   EXPR1 , EXPR2
+positional options (always true): -daystart -follow -regextype
+
+normal options (always true, specified before other expressions):
+      -depth --help -maxdepth LEVELS -mindepth LEVELS -mount -noleaf
+      --version -xdev -ignore_readdir_race -noignore_readdir_race
+tests (N can be +N or -N or N): -amin N -anewer FILE -atime N -cmin N
+      -cnewer FILE -ctime N -empty -false -fstype TYPE -gid N -group NAME
+      -ilname PATTERN -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN
+      -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE
+      -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN
+      -readable -writable -executable
+      -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N
+      -used N -user NAME -xtype [bcdpfls]      -context CONTEXT
+
+actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print 
+      -fprint0 FILE -fprint FILE -ls -fls FILE -prune -quit
+      -exec COMMAND ; -exec COMMAND {} + -ok COMMAND ;
+      -execdir COMMAND ; -execdir COMMAND {} + -okdir COMMAND ;
+
+Valid arguments for -D:
+exec, opt, rates, search, stat, time, tree, all, help
+Use '-D help' for a description of the options, or see find(1)
+
+Please see also the documentation at https://www.gnu.org/software/findutils/.
+You can report (and track progress on fixing) bugs in the "find"
+program via the GNU findutils bug-reporting page at
+https://savannah.gnu.org/bugs/?group=findutils or, if
+you have no web access, by sending email to <bug-findutils@gnu.org>.
+ever@ubuntu-vm:~/homeworks/hw8$ cat t4
+#! /bin/bash
+
+if [ -z $1 ]
+	then
+		echo "you didn't give any argument"
+		#		$1=$(pwd)
+#		echo "no argument given,working in current directory"
+		exit
+	else
+		if [ -d $1 ]
+			then
+				echo "running regex search"
+				echo $(find . -maxdepth 1 -regextype posix-extended -regex "(.*\.tmp)||(.*\.bak)||(.*\.backup)") -delete
+			else
+				echo "No such directory found"
+		fi
+fi
+ever@ubuntu-vm:~/homeworks/hw8$ ll
+total 20
+drwxrwxr-x 2 ever ever 4096 мая 12 19:43 ./
+drwxrwxr-x 7 ever ever 4096 мая 12 18:22 ../
+-rwxrwxr-x 1 ever ever   58 мая 12 18:27 t1*
+-rwxrwxr-x 1 ever ever   87 мая 12 18:37 t2*
+-rwxrwxr-x 1 ever ever  371 мая 12 19:43 t4*
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.backup
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.bak
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.tmp
+ever@ubuntu-vm:~/homeworks/hw8$ bash t4
+you didn't give any argument
+ever@ubuntu-vm:~/homeworks/hw8$ bash t4 $(pwd)
+running regex search
+./test.bak ./test.tmp ./test.backup -delete
+ever@ubuntu-vm:~/homeworks/hw8$ ll
+total 20
+drwxrwxr-x 2 ever ever 4096 мая 12 19:43 ./
+drwxrwxr-x 7 ever ever 4096 мая 12 18:22 ../
+-rwxrwxr-x 1 ever ever   58 мая 12 18:27 t1*
+-rwxrwxr-x 1 ever ever   87 мая 12 18:37 t2*
+-rwxrwxr-x 1 ever ever  371 мая 12 19:43 t4*
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.backup
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.bak
+-rw-rw-r-- 1 ever ever    0 мая 12 19:42 test.tmp
+ever@ubuntu-vm:~/homeworks/hw8$ nano t4
+ever@ubuntu-vm:~/homeworks/hw8$ bash t4 $(pwd)
+t4: line 13: syntax error near unexpected token `)'
+t4: line 13: `				find . -maxdepth 1 -regextype posix-extended -regex "(.*\.tmp)||(.*\.bak)||(.*\.backup)") -delete'
+ever@ubuntu-vm:~/homeworks/hw8$ nano t4
+ever@ubuntu-vm:~/homeworks/hw8$ bash t4 $(pwd)
+running regex search
+ever@ubuntu-vm:~/homeworks/hw8$ ll
+total 20
+drwxrwxr-x 2 ever ever 4096 мая 12 19:45 ./
+drwxrwxr-x 7 ever ever 4096 мая 12 18:22 ../
+-rwxrwxr-x 1 ever ever   58 мая 12 18:27 t1*
+-rwxrwxr-x 1 ever ever   87 мая 12 18:37 t2*
+-rwxrwxr-x 1 ever ever  363 мая 12 19:45 t4*
+  554  history
+  555  whomai
+  556  whoami
+  557  whoami && whoami && whoami
+  558  cd homeworks/
+  559  mkdir hw8 && cd hw8
+  560  touch t1
+  561  nano t1
+  562  chmod +x t1
+  563  bash t1
+  564  cat t1
+  565  touch t2
+  566  nano t2
+  567  chmod +x t2
+  568  bash t2
+  569  nano t2
+  570  bash t2
+  571  nano t2
+  572  bash t2
+  573  nano t2
+  574  bash t2
+  575  nano t2
+  576  bash t2
+  577  nano t2
+  578  bash t2
+  579  nano t2
+  580  bash t2
+  581  cat t2
+  582  cut --help
+  583  ll
+  584  ll | cut -d=" "
+  585  ll | cut -d=
+  586  ll | cut -d
+  587  ll | cut -d ' ' 
+  588  ll | cut -d ' ' -f 1
+  589  ll |tail -n +2| cut -d ' ' -f 1
+  590  ll |tail -n +2| cut -d ' ' -f 1 | sort | unique
+  591  ll |tail -n +2| cut -d ' ' -f 1 | sort | uniq
+  592  ll |tail -n +2| cut -d ' ' -f 1 | sort 
+  593  cat > t4
+  594  nano t4
+  595  chmod +x t4
+  596  ./t4
+  597  nano t4
+  598  ./t4
+  599  cat t4
+  600  ./t4
+  601  ./t4 $(pwd)
+  602  touch test.tmp test.bak test.backup
+  603  ll
+  604  ./t4 $(pwd)
+  605  nano t4
+  606  find --help
+  607  cat t4
+  608  ll
+  609  bash t4
+  610  bash t4 $(pwd)
+  611  ll
+  612  nano t4
+  613  bash t4 $(pwd)
+  614  nano t4
+  615  bash t4 $(pwd)
+  616  ll
+  617  history

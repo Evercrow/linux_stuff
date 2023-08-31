@@ -1,0 +1,398 @@
+ever@ubuntu-vm:~$ ls -l
+total 36
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Desktop
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Documents
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Downloads
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Music
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Pictures
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Public
+drwxrwx--- 1 root vboxsf    0 мар 26 12:53 shared
+drwx------ 5 ever ever   4096 мар 26 11:38 snap
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Templates
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Videos
+ever@ubuntu-vm:~$ ls -al
+total 104
+drwxr-x--- 17 ever ever   4096 апр 21 20:51 .
+drwxr-xr-x  3 root root   4096 мар 26 10:11 ..
+-rw-------  1 ever ever    698 мар 26 13:33 .bash_history
+-rw-r--r--  1 ever ever    220 мар 26 10:11 .bash_logout
+-rw-r--r--  1 ever ever   3771 мар 26 10:11 .bashrc
+drwx------ 13 ever ever   4096 мар 26 12:41 .cache
+drwx------ 14 ever ever   4096 мар 26 13:10 .config
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Desktop
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Documents
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Downloads
+drwx------  2 ever ever   4096 мар 26 11:38 .gnupg
+-rw-------  1 ever ever     20 мар 26 12:15 .lesshst
+drwx------  3 ever ever   4096 мар 26 10:21 .local
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Music
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Pictures
+-rw-r--r--  1 ever ever    807 мар 26 10:11 .profile
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Public
+-rw-rw-r--  1 ever ever     66 мар 26 13:01 .selected_editor
+drwxrwx---  1 root vboxsf    0 мар 26 12:53 shared
+drwx------  5 ever ever   4096 мар 26 11:38 snap
+drwx------  2 ever ever   4096 мар 26 11:38 .ssh
+-rw-r--r--  1 ever ever      0 мар 26 10:46 .sudo_as_admin_successful
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Templates
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-clipboard.pid
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-draganddrop.pid
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-seamless.pid
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-vmsvga-session-tty2.pid
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Videos
+ever@ubuntu-vm:~$ mkdir homeworks/students/
+mkdir: cannot create directory ‘homeworks/students/’: No such file or directory
+ever@ubuntu-vm:~$ mkdir -p  homeworks/students/
+ever@ubuntu-vm:~$ cd homeworks/
+ever@ubuntu-vm:~/homeworks$ mkdir mentors
+ever@ubuntu-vm:~/homeworks$ ls -al
+total 16
+drwxrwxr-x  4 ever ever 4096 апр 21 20:54 .
+drwxr-x--- 18 ever ever 4096 апр 21 20:54 ..
+drwxrwxr-x  2 ever ever 4096 апр 21 20:54 mentors
+drwxrwxr-x  2 ever ever 4096 апр 21 20:54 students
+ever@ubuntu-vm:~/homeworks$ cd mentors/
+ever@ubuntu-vm:~/homeworks/mentors$ touch metor_list.txt
+ever@ubuntu-vm:~/homeworks/mentors$ ls -al
+total 8
+drwxrwxr-x 2 ever ever 4096 апр 21 20:55 .
+drwxrwxr-x 4 ever ever 4096 апр 21 20:54 ..
+-rw-rw-r-- 1 ever ever    0 апр 21 20:55 metor_list.txt
+ever@ubuntu-vm:~/homeworks/mentors$ mv metor_list.txt mentor_list.txt
+ever@ubuntu-vm:~/homeworks/mentors$ pwd
+/home/ever/homeworks/mentors
+ever@ubuntu-vm:~/homeworks/mentors$ ^C
+ever@ubuntu-vm:~/homeworks/mentors$ touch /home/ever/homeworks/students/student_list.txt
+ever@ubuntu-vm:~/homeworks/mentors$ sudo apt install vim
+[sudo] password for ever: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  vim-common vim-runtime vim-tiny
+Suggested packages:
+  ctags vim-doc vim-scripts indent
+The following NEW packages will be installed:
+  vim vim-runtime
+The following packages will be upgraded:
+  vim-common vim-tiny
+2 upgraded, 2 newly installed, 0 to remove and 32 not upgraded.
+Need to get 9 342 kB of archives.
+After this operation, 37,6 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://security.ubuntu.com/ubuntu jammy-security/main amd64 vim-tiny amd64 2:8.2.3995-1ubuntu2.7 [707 kB]
+Get:2 http://security.ubuntu.com/ubuntu jammy-security/main amd64 vim-common all 2:8.2.3995-1ubuntu2.7 [81,5 kB]
+Get:3 http://security.ubuntu.com/ubuntu jammy-security/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.7 [6 825 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/main amd64 vim amd64 2:8.2.3995-1ubuntu2.7 [1 728 kB]
+Fetched 9 342 kB in 19s (493 kB/s)                                             
+(Reading database ... 213419 files and directories currently installed.)
+Preparing to unpack .../vim-tiny_2%3a8.2.3995-1ubuntu2.7_amd64.deb ...
+Unpacking vim-tiny (2:8.2.3995-1ubuntu2.7) over (2:8.2.3995-1ubuntu2.4) ...
+Preparing to unpack .../vim-common_2%3a8.2.3995-1ubuntu2.7_all.deb ...
+Unpacking vim-common (2:8.2.3995-1ubuntu2.7) over (2:8.2.3995-1ubuntu2.4) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a8.2.3995-1ubuntu2.7_all.deb ...
+Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/d
+oc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/t
+ags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.2.3995-1ubuntu2.7) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.2.3995-1ubuntu2.7_amd64.deb ...
+Unpacking vim (2:8.2.3995-1ubuntu2.7) ...
+Setting up vim-common (2:8.2.3995-1ubuntu2.7) ...
+Setting up vim-runtime (2:8.2.3995-1ubuntu2.7) ...
+Setting up vim (2:8.2.3995-1ubuntu2.7) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in a
+uto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdi
+ff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in
+ auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) 
+in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in aut
+o mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in
+ auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in aut
+o mode
+Setting up vim-tiny (2:8.2.3995-1ubuntu2.7) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for man-db (2.10.2-1) ...
+ever@ubuntu-vm:~/homeworks/mentors$ vim mentor_list.txt 
+ever@ubuntu-vm:~/homeworks/mentors$ vim ../students/student_list.txt 
+ever@ubuntu-vm:~/homeworks/mentors$ mv mentor_list.txt ../students/
+ever@ubuntu-vm:~/homeworks/mentors$ cd ..
+ever@ubuntu-vm:~/homeworks$ cd students/
+ever@ubuntu-vm:~/homeworks/students$ ls -al
+total 16
+drwxrwxr-x 2 ever ever 4096 апр 21 21:08 .
+drwxrwxr-x 4 ever ever 4096 апр 21 20:54 ..
+-rw-rw-r-- 1 ever ever   56 апр 21 21:06 mentor_list.txt
+-rw-rw-r-- 1 ever ever  291 апр 21 21:07 student_list.txt
+ever@ubuntu-vm:~/homeworks/students$ cd ..
+ever@ubuntu-vm:~/homeworks$ ls
+mentors  students
+ever@ubuntu-vm:~/homeworks$ rm mentors
+rm: cannot remove 'mentors': Is a directory
+ever@ubuntu-vm:~/homeworks$ rm -r mentors
+ever@ubuntu-vm:~/homeworks$ mv students/ student_and_mentors/
+ever@ubuntu-vm:~/homeworks$ ls
+student_and_mentors
+ever@ubuntu-vm:~/homeworks$ rm -r student_and_mentors/
+ever@ubuntu-vm:~/homeworks$ cat > file1
+soderjimoe1
+asfghgawg;ldsjgsdgwq       
+sadfaljf
+^C
+ever@ubuntu-vm:~/homeworks$ ll
+total 12
+drwxrwxr-x  2 ever ever 4096 апр 21 21:13 ./
+drwxr-x--- 18 ever ever 4096 апр 21 21:07 ../
+-rw-rw-r--  1 ever ever   42 апр 21 21:13 file1
+ever@ubuntu-vm:~/homeworks$ cp file1 file2
+ever@ubuntu-vm:~/homeworks$ ln file1 file4
+ever@ubuntu-vm:~/homeworks$ pwd
+/home/ever/homeworks
+ever@ubuntu-vm:~/homeworks$ ln -s /home/ever/homeworks/file1 file3
+ever@ubuntu-vm:~/homeworks$ ls -al
+total 20
+drwxrwxr-x  2 ever ever 4096 апр 21 21:19 .
+drwxr-x--- 18 ever ever 4096 апр 21 21:07 ..
+-rw-rw-r--  2 ever ever   42 апр 21 21:13 file1
+-rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+lrwxrwxrwx  1 ever ever   26 апр 21 21:19 file3 -> /home/ever/homeworks/file1
+-rw-rw-r--  2 ever ever   42 апр 21 21:13 file4
+ever@ubuntu-vm:~/homeworks$ ls -ali
+total 20
+962406 drwxrwxr-x  2 ever ever 4096 апр 21 21:19 .
+786646 drwxr-x--- 18 ever ever 4096 апр 21 21:07 ..
+919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 file1
+962407 -rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+962408 lrwxrwxrwx  1 ever ever   26 апр 21 21:19 file3 -> /home/ever/homeworks/file1
+919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 file4
+ever@ubuntu-vm:~/homeworks$ rm file1
+ever@ubuntu-vm:~/homeworks$ less file4
+ever@ubuntu-vm:~/homeworks$ ls -ali
+total 16
+962406 drwxrwxr-x  2 ever ever 4096 апр 21 21:20 .
+786646 drwxr-x--- 18 ever ever 4096 апр 21 21:22 ..
+962407 -rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+962408 lrwxrwxrwx  1 ever ever   26 апр 21 21:19 file3 -> /home/ever/homeworks/file1
+919049 -rw-rw-r--  1 ever ever   42 апр 21 21:13 file4
+ever@ubuntu-vm:~/homeworks$ less file3
+file3: No such file or directory
+ever@ubuntu-vm:~/homeworks$ ln file4 hardlinked
+ever@ubuntu-vm:~/homeworks$ ln -sf home/ever/homeworks/hardlinked file3
+ever@ubuntu-vm:~/homeworks$ ls -ali
+total 20
+962406 drwxrwxr-x  2 ever ever 4096 апр 21 21:26 .
+786646 drwxr-x--- 18 ever ever 4096 апр 21 21:22 ..
+962407 -rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+962409 lrwxrwxrwx  1 ever ever   30 апр 21 21:26 file3 -> home/ever/homeworks/hardlinked
+919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 file4
+919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 hardlinked
+ever@ubuntu-vm:~/homeworks$ ln -sf /home/ever/homeworks/hardlinked file3
+ever@ubuntu-vm:~/homeworks$ ls -ali
+total 20
+962406 drwxrwxr-x  2 ever ever 4096 апр 21 21:26 .
+786646 drwxr-x--- 18 ever ever 4096 апр 21 21:22 ..
+962407 -rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+962408 lrwxrwxrwx  1 ever ever   31 апр 21 21:26 file3 -> /home/ever/homeworks/hardlinked
+919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 file4
+919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 hardlinked
+ever@ubuntu-vm:~/homeworks$ mv file3 ..
+ever@ubuntu-vm:~/homeworks$ cd ..
+ever@ubuntu-vm:~$ ls -al
+total 112
+drwxr-x--- 18 ever ever   4096 апр 21 21:27 .
+drwxr-xr-x  3 root root   4096 мар 26 10:11 ..
+-rw-------  1 ever ever    698 мар 26 13:33 .bash_history
+-rw-r--r--  1 ever ever    220 мар 26 10:11 .bash_logout
+-rw-r--r--  1 ever ever   3771 мар 26 10:11 .bashrc
+drwx------ 13 ever ever   4096 мар 26 12:41 .cache
+drwx------ 14 ever ever   4096 мар 26 13:10 .config
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Desktop
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Documents
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Downloads
+lrwxrwxrwx  1 ever ever     31 апр 21 21:26 file3 -> /home/ever/homeworks/hardlinked
+drwx------  2 ever ever   4096 мар 26 11:38 .gnupg
+drwxrwxr-x  2 ever ever   4096 апр 21 21:27 homeworks
+-rw-------  1 ever ever     20 апр 21 21:22 .lesshst
+drwx------  3 ever ever   4096 мар 26 10:21 .local
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Music
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Pictures
+-rw-r--r--  1 ever ever    807 мар 26 10:11 .profile
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Public
+-rw-rw-r--  1 ever ever     66 мар 26 13:01 .selected_editor
+drwxrwx---  1 root vboxsf    0 мар 26 12:53 shared
+drwx------  5 ever ever   4096 мар 26 11:38 snap
+drwx------  2 ever ever   4096 мар 26 11:38 .ssh
+-rw-r--r--  1 ever ever      0 мар 26 10:46 .sudo_as_admin_successful
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Templates
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-clipboard.pid
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-draganddrop.pid
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-seamless.pid
+-rw-r-----  1 ever ever      5 апр 21 20:51 .vboxclient-vmsvga-session-tty2.pid
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Videos
+-rw-------  1 ever ever   1597 апр 21 21:07 .viminfo
+ever@ubuntu-vm:~$ cd homeworks/
+ever@ubuntu-vm:~/homeworks$ mkdir subdir/
+ever@ubuntu-vm:~/homeworks$ mv hardlinked subdir/
+ever@ubuntu-vm:~/homeworks$ ls -ali
+total 20
+ 962406 drwxrwxr-x  3 ever ever 4096 апр 21 21:29 .
+ 786646 drwxr-x--- 18 ever ever 4096 апр 21 21:27 ..
+ 962407 -rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+ 919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 file4
+1049976 drwxrwxr-x  2 ever ever 4096 апр 21 21:29 subdir
+ever@ubuntu-vm:~/homeworks$ cd ..
+ever@ubuntu-vm:~$ ls -l
+total 40
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Desktop
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Documents
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Downloads
+lrwxrwxrwx 1 ever ever     31 апр 21 21:26 file3 -> /home/ever/homeworks/hardlinked
+drwxrwxr-x 3 ever ever   4096 апр 21 21:29 homeworks
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Music
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Pictures
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Public
+drwxrwx--- 1 root vboxsf    0 мар 26 12:53 shared
+drwx------ 5 ever ever   4096 мар 26 11:38 snap
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Templates
+drwxr-xr-x 2 ever ever   4096 мар 26 10:21 Videos
+ever@ubuntu-vm:~$ rm file3
+ever@ubuntu-vm:~$ cd homeworks/subdir/
+ever@ubuntu-vm:~/homeworks/subdir$ ls -al
+total 12
+drwxrwxr-x 2 ever ever 4096 апр 21 21:29 .
+drwxrwxr-x 3 ever ever 4096 апр 21 21:29 ..
+-rw-rw-r-- 2 ever ever   42 апр 21 21:13 hardlinked
+ever@ubuntu-vm:~/homeworks/subdir$ less hardlinked 
+ever@ubuntu-vm:~/homeworks/subdir$ cd ..
+ever@ubuntu-vm:~/homeworks$ ls -ali
+total 20
+ 962406 drwxrwxr-x  3 ever ever 4096 апр 21 21:29 .
+ 786646 drwxr-x--- 18 ever ever 4096 апр 21 21:30 ..
+ 962407 -rw-rw-r--  1 ever ever   42 апр 21 21:15 file2
+ 919049 -rw-rw-r--  2 ever ever   42 апр 21 21:13 file4
+1049976 drwxrwxr-x  2 ever ever 4096 апр 21 21:29 subdir
+ever@ubuntu-vm:~/homeworks$ pwd
+/home/ever/homeworks
+ever@ubuntu-vm:~/homeworks$ rm /home/ever/homeworks/*
+rm: cannot remove '/home/ever/homeworks/subdir': Is a directory
+ever@ubuntu-vm:~/homeworks$ ls -al
+total 12
+drwxrwxr-x  3 ever ever 4096 апр 21 21:31 .
+drwxr-x--- 18 ever ever 4096 апр 21 21:30 ..
+drwxrwxr-x  2 ever ever 4096 апр 21 21:29 subdir
+ever@ubuntu-vm:~/homeworks$ history
+1  sudo apt update
+    2  sudo apt install mc
+    3  sudo apt install openssh-server 
+    4  sudo apt get-install virtual-box-guest-additions-iso
+    5  sudo apt install virtual-box-guest-additions-iso
+    6  sudo apt install virtualbox-guest-additions-iso 
+    7  sudo apt update
+    8  apt list --upgradable
+    9  apt list --upgradablesudossssudosclear
+   10  sudo apt upgrade
+   11  sudo apt install openssh-server
+   12  history
+   13  ip a
+   14  systemctl status ssh
+   15  sudo rcvboxadd setup
+   16  sudo apt list
+   17  clear
+   18  mc
+   19  close
+   20  exit
+   21  sudo apt update
+   22  sudo apt install gcc make perl
+   23  sudo reboot
+   24  sudo usermod -aG vboxsf ever
+   25  sudo reboot
+   26  sudo nano /etc/
+   27  mc
+   28  sudo nano /etc/gdm3/custom.conf
+   29  sudo systemctl restart gdm3
+   30  sudo apt remove mc
+   31  mc
+   32  sudo apt install mc
+   33  mc
+   34  exit
+   35  hostnamectl
+   36  uname -a
+   37  history
+   38  exit
+   39  ls -l
+   40  ls -al
+   41  mkdir homeworks/students/
+   42  mkdir -p  homeworks/students/
+   43  cd homeworks/
+   44  mkdir mentors
+   45  ls -al
+   46  cd mentors/
+   47  touch metor_list.txt
+   48  ls -al
+   49  mv metor_list.txt mentor_list.txt
+   50  pwd
+   51  touch /home/ever/homeworks/students/student_list.txt
+   52  sudo apt install vim
+   53  vim mentor_list.txt 
+   54  vim ../students/student_list.txt 
+   55  mv mentor_list.txt ../students/
+   56  cd ..
+   57  cd students/
+   58  ls -al
+   59  cd ..
+   60  ls
+   61  rm mentors
+   62  rm -r mentors
+   63  mv students/ student_and_mentors/
+   64  ls
+   65  rm -r student_and_mentors/
+   66  cat > file1
+   67  ll
+   68  cp file1 file2
+   69  ln file1 file4
+   70  pwd
+   71  ln -s /home/ever/homeworks/file1 file3
+   72  ls -al
+   73  ls -ali
+   74  rm file1
+   75  less file4
+   76  ls -ali
+   77  less file3
+   78  ln file4 hardlinked
+   79  ln -sf home/ever/homeworks/hardlinked file3
+   80  ls -ali
+   81  ln -sf /home/ever/homeworks/hardlinked file3
+   82  ls -ali
+   83  mv file3 ..
+   84  cd ..
+   85  ls -al
+   86  cd homeworks/
+   87  mkdir subdir/
+   88  mv hardlinked subdir/
+   89  ls -ali
+   90  cd ..
+   91  ls -l
+   92  rm file3
+   93  cd homeworks/subdir/
+   94  ls -al
+   95  less hardlinked 
+   96  cd ..
+   97  ls -ali
+   98  pwd
+   99  rm /home/ever/homeworks/*
+  100  ls -al
+  101  history
+ever@ubuntu-vm:~/homeworks$ 
+
+
+

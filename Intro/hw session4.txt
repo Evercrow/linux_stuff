@@ -1,0 +1,928 @@
+Подключить репозиторий с nginx любым удобным способом, установить nginx и потом удалить nginx, используя утилиту dpkg.
+Установить пакет на свой выбор, используя snap.
+Создать с помощью nano файл test.txt. Настроить автоматический бэкап этого файла раз в 10 минут в файл с названием test.txt.bak с использованием cron.
+----------------------------
+/home/ever/homeworks/hw4/test.txt  /home/ever/homeworks/hw4/test.txt.bak
+
+ever@ubuntu-vm:~$ apt search nginx
+Sorting... Done
+Full Text Search... Done
+centreon-plugins/jammy,jammy 0.0~20220113-1 all
+  Collection of Nagios plugins to monitor OS, services and network devices
+
+elpa-nginx-mode/jammy,jammy 1.1.9-2 all
+  major mode for editing nginx config files
+
+fcgiwrap/jammy 1.1.0-12 amd64
+  simple server to run CGI applications over FastCGI
+
+gitweb/jammy-security,jammy-security 1:2.34.1-1ubuntu1.8 all
+  fast, scalable, distributed revision control system (web interface)
+
+golang-github-gorilla-handlers-dev/jammy,jammy 1.4.2-1 all
+  collection of useful handlers for Go's net/http package
+
+golang-github-hashicorp-hcl-dev/jammy,jammy 1.0.0-1.1 all
+  Go implementation of HashiCorp Configuration Language
+
+golang-github-nginxinc-nginx-plus-go-client-dev/jammy,jammy 0.9.0-2 all
+  client for NGINX Plus API for Go (library)
+
+gunicorn/jammy,jammy 20.1.0-2 all
+  Event-based HTTP/WSGI server
+
+gunicorn-examples/jammy,jammy 20.1.0-2 all
+  Event-based HTTP/WSGI server (examples)
+
+kopano-webapp-nginx/jammy,jammy 3.5.14+dfsg1.orig-1 all
+  WebApp for the Kopano Collaboration Platform - Nginx
+
+ledgersmb/jammy,jammy 1.6.33+ds-1 all
+  financial accounting and ERP program
+
+lemonldap-ng-fastcgi-server/jammy,jammy 2.0.13+ds-3ubuntu1 all
+  Lemonldap::NG FastCGI server
+
+lemonldap-ng-handler/jammy,jammy 2.0.13+ds-3ubuntu1 all
+  Lemonldap::NG handler part
+
+libnginx-mod-http-auth-pam/jammy-security 1.18.0-6ubuntu14.3 amd64
+  PAM authentication module for Nginx
+
+libnginx-mod-http-cache-purge/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Purge content from Nginx caches
+
+libnginx-mod-http-dav-ext/jammy-security 1.18.0-6ubuntu14.3 amd64
+  WebDAV missing commands support for Nginx
+
+libnginx-mod-http-echo/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Bring echo and more shell style goodies to Nginx
+
+libnginx-mod-http-fancyindex/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Fancy indexes module for the Nginx
+
+libnginx-mod-http-geoip/jammy-security 1.18.0-6ubuntu14.3 amd64
+  GeoIP HTTP module for Nginx
+
+libnginx-mod-http-geoip2/jammy-security 1.18.0-6ubuntu14.3 amd64
+  GeoIP2 HTTP module for Nginx
+
+libnginx-mod-http-headers-more-filter/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Set and clear input and output headers for Nginx
+
+libnginx-mod-http-image-filter/jammy-security 1.18.0-6ubuntu14.3 amd64
+  HTTP image filter module for Nginx
+
+libnginx-mod-http-ndk/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Nginx Development Kit module
+
+libnginx-mod-http-perl/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Perl module for Nginx
+
+libnginx-mod-http-subs-filter/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Substitution filter module for Nginx
+
+libnginx-mod-http-uploadprogress/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Upload progress system for Nginx
+
+libnginx-mod-http-upstream-fair/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Nginx Upstream Fair Proxy Load Balancer
+
+libnginx-mod-http-xslt-filter/jammy-security 1.18.0-6ubuntu14.3 amd64
+  XSLT Transformation module for Nginx
+
+libnginx-mod-mail/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Mail module for Nginx
+
+libnginx-mod-nchan/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Fast, flexible pub/sub server for Nginx
+
+libnginx-mod-rtmp/jammy-security 1.18.0-6ubuntu14.3 amd64
+  RTMP support for Nginx
+
+libnginx-mod-stream/jammy-security 1.18.0-6ubuntu14.3 amd64
+  Stream module for Nginx
+
+libnginx-mod-stream-geoip/jammy-security 1.18.0-6ubuntu14.3 amd64
+  GeoIP Stream module for Nginx
+
+libnginx-mod-stream-geoip2/jammy-security 1.18.0-6ubuntu14.3 amd64
+  GeoIP2 Stream module for Nginx
+
+libplack-middleware-file-sass-perl/jammy,jammy 0.03-4.1 all
+  Sass and SCSS support for all Plack-based PSGI frameworks
+
+lua-nginx-cookie/jammy,jammy 0.1.0-1.1 all
+  Pure Lua cookie parser for the nginx embedded Lua language
+
+lua-nginx-dns/jammy,jammy 0.20-1 all
+  DNS resolver for the nginx embedded Lua language
+
+lua-nginx-kafka/jammy,jammy 0.07-1 all
+  Pure Lua Kafka producer for the nginx embedded Lua language
+
+lua-nginx-memcached/jammy,jammy 0.14-1.1 all
+  Pure Lua memcached client driver for the nginx embedded Lua language
+
+lua-nginx-redis/jammy,jammy 0.27-1.1 all
+  Pure Lua redis client driver for the nginx embedded Lua language
+
+lua-nginx-redis-connector/jammy,jammy 0.06-1 all
+  Connection utilities for lua-nginx-redis
+
+lua-nginx-string/jammy,jammy 0.11-1 all
+  String utilities for the nginx embedded Lua language
+
+lua-nginx-websocket/jammy,jammy 0.08-1 all
+  Lua websocket client driver for the nginx embedded Lua language
+
+mighttpd2/jammy 3.4.6-1build1.1 amd64
+  classical web server on WAI/warp
+
+nginx/jammy-security 1.18.0-6ubuntu14.3 amd64
+  small, powerful, scalable web/proxy server
+
+nginx-common/jammy-security,jammy-security 1.18.0-6ubuntu14.3 all
+  small, powerful, scalable web/proxy server - common files
+
+nginx-confgen/jammy 2.0-1 amd64
+  nginx configuration file macro language and preprocessor
+
+nginx-core/jammy-security 1.18.0-6ubuntu14.3 amd64
+  nginx web/proxy server (standard version)
+
+nginx-doc/jammy-security,jammy-security 1.18.0-6ubuntu14.3 all
+  small, powerful, scalable web/proxy server - documentation
+
+nginx-extras/jammy-security 1.18.0-6ubuntu14.3 amd64
+  nginx web/proxy server (extended version)
+
+nginx-full/jammy-security 1.18.0-6ubuntu14.3 amd64
+  nginx web/proxy server (standard version with 3rd parties)
+
+nginx-light/jammy-security 1.18.0-6ubuntu14.3 amd64
+  nginx web/proxy server (basic version)
+
+prometheus-exporter-exporter/jammy 0.4.0-1 amd64
+  simple reverse proxy to other Prometheus exporters
+
+prometheus-nginx-exporter/jammy 0.10.0-1 amd64
+  Prometheus exporter for NGINX webservers
+
+python3-certbot-nginx/jammy,jammy 1.21.0-1 all
+  Nginx plugin for Certbot
+
+python3-django-downloadview/jammy,jammy 2.3.0-1 all
+  efficient static file serving with Django (Python3 version)
+
+python3-geventhttpclient/jammy 1.5.3-1build1 amd64
+  high performance, concurrent HTTP client library for Python using gevent
+
+python3-gunicorn/jammy,jammy 20.1.0-2 all
+  Event-based HTTP/WSGI server (Python 3 libraries)
+
+python3-whitenoise/jammy,jammy 5.2.0-1 all
+  static file serving for WSGI applications (Python 3)
+
+resource-agents-extra/jammy 1:4.7.0-1ubuntu7 amd64
+  Cluster Resource Agents
+
+rt4-fcgi/jammy,jammy 4.4.4+dfsg-2ubuntu1 all
+  External FastCGI support for request-tracker4
+
+rt5-fcgi/jammy,jammy 5.0.1+dfsg-1ubuntu1 all
+  External FastCGI support for request-tracker5
+
+test-kitchen/jammy,jammy 1.23.2-6 all
+  integration tool for Chef
+
+ever@ubuntu-vm:~$ apt list nginx
+Listing... Done
+nginx/jammy-security 1.18.0-6ubuntu14.3 amd64
+N: There is 1 additional version. Please use the '-a' switch to see it
+ever@ubuntu-vm:~$ apt list nginx -a
+Listing... Done
+nginx/jammy-security 1.18.0-6ubuntu14.3 amd64
+nginx/jammy 1.18.0-6ubuntu14 amd64
+
+ever@ubuntu-vm:~$ cd /etc/apt
+ever@ubuntu-vm:/etc/apt$ ll
+total 48
+drwxr-xr-x   8 root root  4096 мар 26 10:33 ./
+drwxr-xr-x 131 root root 12288 апр 22 18:58 ../
+drwxr-xr-x   2 root root  4096 мар 26 10:14 apt.conf.d/
+drwxr-xr-x   2 root root  4096 апр  8  2022 auth.conf.d/
+drwxr-xr-x   2 root root  4096 апр  8  2022 keyrings/
+drwxr-xr-x   2 root root  4096 апр  8  2022 preferences.d/
+-rw-rw-r--   1 root root  2529 мар 26 10:33 sources.list
+drwxr-xr-x   2 root root  4096 апр  8  2022 sources.list.d/
+-rw-rw-r--   1 root root  2529 мар 26 10:33 sources.list.save
+drwxr-xr-x   2 root root  4096 фев 23 06:57 trusted.gpg.d/
+ever@ubuntu-vm:/etc/apt$ less sources.list
+ever@ubuntu-vm:/etc/apt$ apt-add-repository -h
+usage: apt-add-repository [-h] [-d] [-r] [-s] [-c COMPONENT] [-p POCKET] [-y] [-n] [-l] [--dry-run] [-L | -P PPA | -C CLOUD | -U URI | -S SOURCESLIST [SOURCESLIST ...] | line ...]
+
+Only ONE of -P, -C, -U, -S, or old-style 'line' can be specified
+
+positional arguments:
+  line                  sources.list line to add (deprecated)
+
+options:
+  -h, --help            show this help message and exit
+  -d, --debug           Print debug
+  -r, --remove          Disable repository
+  -s, --enable-source   Allow downloading of the source packages from the repository
+  -c COMPONENT, --component COMPONENT
+                        Components to use with the repository
+  -p POCKET, --pocket POCKET
+                        Add entry for this pocket
+  -y, --yes             Assume yes to all queries
+  -n, --no-update       Do not update package cache after adding
+  -l, --login           Login to Launchpad.
+  --dry-run             Don't actually make any changes.
+  -L, --list            List currently configured repositories
+  -P PPA, --ppa PPA     PPA to add
+  -C CLOUD, --cloud CLOUD
+                        Cloud Archive to add
+  -U URI, --uri URI     Archive URI to add
+  -S SOURCESLIST [SOURCESLIST ...], --sourceslist SOURCESLIST [SOURCESLIST ...]
+                        Full sources.list entry line to add
+ever@ubuntu-vm:/etc/apt$ apt-add-repository -L
+deb http://ru.archive.ubuntu.com/ubuntu/ jammy restricted multiverse universe main
+deb http://security.ubuntu.com/ubuntu jammy-security restricted multiverse universe main
+ever@ubuntu-vm:/etc/apt$ apt-add-repository http://hg.nginx.org/nginx
+Error: must run as root
+ever@ubuntu-vm:/etc/apt$ sudo apt-add-repository http://hg.nginx.org/nginx
+[sudo] password for ever: 
+Repository: 'deb http://hg.nginx.org/nginx jammy main'
+Description:
+Archive for codename: jammy components: main
+More info: http://hg.nginx.org/nginx
+Adding repository.
+Press [ENTER] to continue or Ctrl-c to cancel.
+Adding deb entry to /etc/apt/sources.list.d/archive_uri-http_hg_nginx_org_nginx-jammy.list
+Adding disabled deb-src entry to /etc/apt/sources.list.d/archive_uri-http_hg_nginx_org_nginx-jammy.list
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease                  
+Get:3 http://hg.nginx.org/nginx jammy InRelease      
+Err:3 http://hg.nginx.org/nginx jammy InRelease
+  Clearsigned file isn't valid, got 'NOSPLIT' (does the network require authentication?)
+Reading package lists... Done
+E: Failed to fetch http://hg.nginx.org/nginx/dists/jammy/InRelease  Clearsigned file isn't valid, got 'NOSPLIT' (does the network require authentication?)
+E: The repository 'http://hg.nginx.org/nginx jammy InRelease' is not signed.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+ever@ubuntu-vm:/etc/apt$ sudo apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+lsb-release is already the newest version (11.1.0ubuntu4).
+lsb-release set to manually installed.
+ubuntu-keyring is already the newest version (2021.03.26).
+ubuntu-keyring set to manually installed.
+ca-certificates is already the newest version (20211016ubuntu0.22.04.1).
+ca-certificates set to manually installed.
+The following NEW packages will be installed:
+  curl gnupg2
+0 upgraded, 2 newly installed, 0 to remove and 36 not upgraded.
+Need to get 200 kB of archives.
+After this operation, 506 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://security.ubuntu.com/ubuntu jammy-security/main amd64 curl amd64 7.81.0-1ubuntu1.10 [194 kB]
+Get:2 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 gnupg2 all 2.2.27-3ubuntu2.1 [5 548 B]
+Fetched 200 kB in 0s (452 kB/s)       
+Selecting previously unselected package curl.
+(Reading database ... 217112 files and directories currently installed.)
+Preparing to unpack .../curl_7.81.0-1ubuntu1.10_amd64.deb ...
+Unpacking curl (7.81.0-1ubuntu1.10) ...
+Selecting previously unselected package gnupg2.
+Preparing to unpack .../gnupg2_2.2.27-3ubuntu2.1_all.deb ...
+Unpacking gnupg2 (2.2.27-3ubuntu2.1) ...
+Setting up gnupg2 (2.2.27-3ubuntu2.1) ...
+Setting up curl (7.81.0-1ubuntu1.10) ...
+Processing triggers for man-db (2.10.2-1) ...
+ever@ubuntu-vm:/etc/apt$ curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
+    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1561  100  1561    0     0   5502      0 --:--:-- --:--:-- --:--:--  5496
+ever@ubuntu-vm:/etc/apt$ gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+pub   rsa2048 2011-08-19 [SC] [expires: 2024-06-14]
+      573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
+uid                      nginx signing key <signing-key@nginx.com>
+
+ever@ubuntu-vm:/etc/apt$ echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
+    | sudo tee /etc/apt/sources.list.d/nginx.list
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu jammy nginx
+ever@ubuntu-vm:/etc/apt$ cd sources.list.d/
+ever@ubuntu-vm:/etc/apt/sources.list.d$ ll
+total 16
+drwxr-xr-x 2 root root 4096 апр 28 18:08 ./
+drwxr-xr-x 8 root root 4096 мар 26 10:33 ../
+-rw-r--r-- 1 root root   88 апр 28 18:03 archive_uri-http_hg_nginx_org_nginx-jammy.list
+-rw-r--r-- 1 root root  107 апр 28 18:08 nginx.list
+ever@ubuntu-vm:/etc/apt/sources.list.d$ echo "настраиваем, чтобы не было конфликтов обновления с репозитория дистрибутива Убунту, и приоритетным был nginx частный"
+настраиваем, чтобы не было конфликтов обновления с репозитория дистрибутива Убунту, и приоритетным был nginx частный
+ever@ubuntu-vm:/etc/apt/sources.list.d$ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
+    | sudo tee /etc/apt/preferences.d/99nginx
+Package: *
+Pin: origin nginx.org
+Pin: release o=nginx
+Pin-Priority: 900
+
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo apt update
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://nginx.org/packages/ubuntu jammy InRelease [3 587 B]                                                              
+Hit:3 http://security.ubuntu.com/ubuntu jammy-security InRelease                                                              
+Get:4 http://nginx.org/packages/ubuntu jammy/nginx amd64 Packages [12,9 kB]
+Get:5 http://hg.nginx.org/nginx jammy InRelease                     
+Err:5 http://hg.nginx.org/nginx jammy InRelease
+  Clearsigned file isn't valid, got 'NOSPLIT' (does the network require authentication?)
+Reading package lists... Done
+N: Skipping acquire of configured file 'nginx/binary-i386/Packages' as repository 'http://nginx.org/packages/ubuntu jammy InRelease' doesn't support architecture 'i386'
+E: Failed to fetch http://hg.nginx.org/nginx/dists/jammy/InRelease  Clearsigned file isn't valid, got 'NOSPLIT' (does the network require authentication?)
+E: The repository 'http://hg.nginx.org/nginx jammy InRelease' is not signed.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+ever@ubuntu-vm:/etc/apt/sources.list.d$ apt-secure -man
+apt-secure: command not found
+ever@ubuntu-vm:/etc/apt/sources.list.d$ apt-secure man
+apt-secure: command not found
+ever@ubuntu-vm:/etc/apt/sources.list.d$ apt-secure --help
+apt-secure: command not found
+ever@ubuntu-vm:/etc/apt/sources.list.d$ apt -man
+E: Command line option 'a' [from -man] is not understood in combination with the other options.
+ever@ubuntu-vm:/etc/apt/sources.list.d$ ll
+total 16
+drwxr-xr-x 2 root root 4096 апр 28 18:08 ./
+drwxr-xr-x 8 root root 4096 мар 26 10:33 ../
+-rw-r--r-- 1 root root   88 апр 28 18:03 archive_uri-http_hg_nginx_org_nginx-jammy.list
+-rw-r--r-- 1 root root  107 апр 28 18:08 nginx.list
+ever@ubuntu-vm:/etc/apt/sources.list.d$ rm nginx.list
+rm: remove write-protected regular file 'nginx.list'? y
+rm: cannot remove 'nginx.list': Permission denied
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo rm nginx.list
+[sudo] password for ever: 
+ever@ubuntu-vm:/etc/apt/sources.list.d$ ll
+total 12
+drwxr-xr-x 2 root root 4096 апр 28 18:29 ./
+drwxr-xr-x 8 root root 4096 мар 26 10:33 ../
+-rw-r--r-- 1 root root   88 апр 28 18:03 archive_uri-http_hg_nginx_org_nginx-jammy.list
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo rm archive_uri-http_hg_nginx_org_nginx-jammy.list 
+ever@ubuntu-vm:/etc/apt/sources.list.d$ ll
+total 8
+drwxr-xr-x 2 root root 4096 апр 28 18:31 ./
+drwxr-xr-x 8 root root 4096 мар 26 10:33 ../
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo apt update
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+36 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ever@ubuntu-vm:/etc/apt/sources.list.d$ echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
+    | sudo tee /etc/apt/sources.list.d/nginx.list
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu jammy nginx
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo apt update
+Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://nginx.org/packages/ubuntu jammy InRelease [3 587 B]
+Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:4 http://nginx.org/packages/ubuntu jammy/nginx amd64 Packages [12,9 kB]
+Fetched 127 kB in 0s (311 kB/s)                                       
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+36 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'nginx/binary-i386/Packages' as repository 'http://nginx.org/packages/ubuntu jammy InRelease' doesn't support architecture 'i386'
+ever@ubuntu-vm:/etc/apt/sources.list.d$ apt list --upgradable
+Listing... Done
+apport-gtk/jammy-security,jammy-security 2.20.11-0ubuntu82.4 all [upgradable from: 2.20.11-0ubuntu82.3]
+apport/jammy-security,jammy-security 2.20.11-0ubuntu82.4 all [upgradable from: 2.20.11-0ubuntu82.3]
+dnsmasq-base/jammy-security 2.86-1.1ubuntu0.3 amd64 [upgradable from: 2.86-1.1ubuntu0.1]
+ghostscript-x/jammy-security 9.55.0~dfsg1-0ubuntu5.2 amd64 [upgradable from: 9.55.0~dfsg1-0ubuntu5.1]
+ghostscript/jammy-security 9.55.0~dfsg1-0ubuntu5.2 amd64 [upgradable from: 9.55.0~dfsg1-0ubuntu5.1]
+ipp-usb/jammy-security 0.9.20-1ubuntu0.22.04.1 amd64 [upgradable from: 0.9.20-1]
+libgs9-common/jammy-security,jammy-security 9.55.0~dfsg1-0ubuntu5.2 all [upgradable from: 9.55.0~dfsg1-0ubuntu5.1]
+libgs9/jammy-security 9.55.0~dfsg1-0ubuntu5.2 amd64 [upgradable from: 9.55.0~dfsg1-0ubuntu5.1]
+libldb2/jammy-security 2:2.4.4-0ubuntu0.22.04.2 amd64 [upgradable from: 2:2.4.4-0ubuntu0.22.04.1]
+liblouis-data/jammy-security,jammy-security 3.20.0-2ubuntu0.2 all [upgradable from: 3.20.0-2ubuntu0.1]
+liblouis20/jammy-security 3.20.0-2ubuntu0.2 amd64 [upgradable from: 3.20.0-2ubuntu0.1]
+libsmbclient/jammy-security 2:4.15.13+dfsg-0ubuntu1.1 amd64 [upgradable from: 2:4.15.13+dfsg-0ubuntu1]
+libssl3/jammy-security 3.0.2-0ubuntu1.9 amd64 [upgradable from: 3.0.2-0ubuntu1.8]
+libssl3/jammy-security 3.0.2-0ubuntu1.9 i386 [upgradable from: 3.0.2-0ubuntu1.8]
+libwbclient0/jammy-security 2:4.15.13+dfsg-0ubuntu1.1 amd64 [upgradable from: 2:4.15.13+dfsg-0ubuntu1]
+libxml2/jammy-security 2.9.13+dfsg-1ubuntu0.3 amd64 [upgradable from: 2.9.13+dfsg-1ubuntu0.2]
+linux-firmware/jammy-security,jammy-security 20220329.git681281e4-0ubuntu3.12 all [upgradable from: 20220329.git681281e4-0ubuntu3.10]
+linux-generic-hwe-22.04/jammy-security 5.19.0.41.42~22.04.14 amd64 [upgradable from: 5.19.0.35.36~22.04.10]
+linux-headers-generic-hwe-22.04/jammy-security 5.19.0.41.42~22.04.14 amd64 [upgradable from: 5.19.0.35.36~22.04.10]
+linux-headers-generic/jammy-security 5.15.0.71.69 amd64 [upgradable from: 5.15.0.67.65]
+linux-image-generic-hwe-22.04/jammy-security 5.19.0.41.42~22.04.14 amd64 [upgradable from: 5.19.0.35.36~22.04.10]
+linux-libc-dev/jammy-security 5.15.0-71.78 amd64 [upgradable from: 5.15.0-67.74]
+openssl/jammy-security 3.0.2-0ubuntu1.9 amd64 [upgradable from: 3.0.2-0ubuntu1.8]
+python3-apport/jammy-security,jammy-security 2.20.11-0ubuntu82.4 all [upgradable from: 2.20.11-0ubuntu82.3]
+python3-ldb/jammy-security 2:2.4.4-0ubuntu0.22.04.2 amd64 [upgradable from: 2:2.4.4-0ubuntu0.22.04.1]
+python3-louis/jammy-security,jammy-security 3.20.0-2ubuntu0.2 all [upgradable from: 3.20.0-2ubuntu0.1]
+python3-problem-report/jammy-security,jammy-security 2.20.11-0ubuntu82.4 all [upgradable from: 2.20.11-0ubuntu82.3]
+samba-libs/jammy-security 2:4.15.13+dfsg-0ubuntu1.1 amd64 [upgradable from: 2:4.15.13+dfsg-0ubuntu1]
+sudo/jammy-security 1.9.9-1ubuntu2.4 amd64 [upgradable from: 1.9.9-1ubuntu2.3]
+tzdata/jammy-security,jammy-security 2023c-0ubuntu0.22.04.0 all [upgradable from: 2022g-0ubuntu0.22.04.1]
+xserver-common/jammy-security,jammy-security 2:21.1.3-2ubuntu2.9 all [upgradable from: 2:21.1.3-2ubuntu2.7]
+xserver-xephyr/jammy-security 2:21.1.3-2ubuntu2.9 amd64 [upgradable from: 2:21.1.3-2ubuntu2.7]
+xserver-xorg-core/jammy-security 2:21.1.3-2ubuntu2.9 amd64 [upgradable from: 2:21.1.3-2ubuntu2.7]
+xserver-xorg-legacy/jammy-security 2:21.1.3-2ubuntu2.9 amd64 [upgradable from: 2:21.1.3-2ubuntu2.7]
+xwayland/jammy-security 2:22.1.1-1ubuntu0.6 amd64 [upgradable from: 2:22.1.1-1ubuntu0.5]
+xxd/jammy-security 2:8.2.3995-1ubuntu2.7 amd64 [upgradable from: 2:8.2.3995-1ubuntu2.4]
+ever@ubuntu-vm:/etc/apt/sources.list.d$ apt install nginx
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  nginx
+0 upgraded, 1 newly installed, 0 to remove and 36 not upgraded.
+Need to get 1 012 kB of archives.
+After this operation, 3 283 kB of additional disk space will be used.
+Get:1 http://nginx.org/packages/ubuntu jammy/nginx amd64 nginx amd64 1.24.0-1~jammy [1 012 kB]
+Fetched 1 012 kB in 1s (1 842 kB/s) 
+Selecting previously unselected package nginx.
+(Reading database ... 217125 files and directories currently installed.)
+Preparing to unpack .../nginx_1.24.0-1~jammy_amd64.deb ...
+----------------------------------------------------------------------
+
+Thanks for using nginx!
+
+Please find the official documentation for nginx here:
+* https://nginx.org/en/docs/
+
+Please subscribe to nginx-announce mailing list to get
+the most important news about nginx:
+* https://nginx.org/en/support.html
+
+Commercial subscriptions for nginx are available on:
+* https://nginx.com/products/
+
+----------------------------------------------------------------------
+Unpacking nginx (1.24.0-1~jammy) ...
+Setting up nginx (1.24.0-1~jammy) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+Processing triggers for man-db (2.10.2-1) ...
+ever@ubuntu-vm:/etc/apt/sources.list.d$ dkpg -h
+Command 'dkpg' not found, did you mean:
+  command 'dpkg' from deb dpkg (1.21.1ubuntu2.1)
+Try: sudo apt install <deb name>
+ever@ubuntu-vm:/etc/apt/sources.list.d$ dpkg -h
+dpkg: error: unknown option -h
+
+Type dpkg --help for help about installing and deinstalling packages [*];
+Use 'apt' or 'aptitude' for user-friendly package management;
+Type dpkg -Dhelp for a list of dpkg debug flag values;
+Type dpkg --force-help for a list of forcing options;
+Type dpkg-deb --help for help about manipulating *.deb files;
+
+Options marked [*] produce a lot of output - pipe it through 'less' or 'more' !
+ever@ubuntu-vm:/etc/apt/sources.list.d$ dpkg --help
+Usage: dpkg [<option>...] <command>
+
+Commands:
+  -i|--install       <.deb file name>... | -R|--recursive <directory>...
+  --unpack           <.deb file name>... | -R|--recursive <directory>...
+  -A|--record-avail  <.deb file name>... | -R|--recursive <directory>...
+  --configure        <package>... | -a|--pending
+  --triggers-only    <package>... | -a|--pending
+  -r|--remove        <package>... | -a|--pending
+  -P|--purge         <package>... | -a|--pending
+  -V|--verify [<package>...]       Verify the integrity of package(s).
+  --get-selections [<pattern>...]  Get list of selections to stdout.
+  --set-selections                 Set package selections from stdin.
+  --clear-selections               Deselect every non-essential package.
+  --update-avail [<Packages-file>] Replace available packages info.
+  --merge-avail [<Packages-file>]  Merge with info from file.
+  --clear-avail                    Erase existing available info.
+  --forget-old-unavail             Forget uninstalled unavailable pkgs.
+  -s|--status [<package>...]       Display package status details.
+  -p|--print-avail [<package>...]  Display available version details.
+  -L|--listfiles <package>...      List files 'owned' by package(s).
+  -l|--list [<pattern>...]         List packages concisely.
+  -S|--search <pattern>...         Find package(s) owning file(s).
+  -C|--audit [<package>...]        Check for broken package(s).
+  --yet-to-unpack                  Print packages selected for installation.
+  --predep-package                 Print pre-dependencies to unpack.
+  --add-architecture <arch>        Add <arch> to the list of architectures.
+  --remove-architecture <arch>     Remove <arch> from the list of architectures.
+  --print-architecture             Print dpkg architecture.
+  --print-foreign-architectures    Print allowed foreign architectures.
+  --assert-help                    Show help on assertions.
+  --assert-<feature>               Assert support for the specified feature.
+  --validate-<thing> <string>      Validate a <thing>'s <string>.
+  --compare-versions <a> <op> <b>  Compare version numbers - see below.
+  --force-help                     Show help on forcing.
+  -Dh|--debug=help                 Show help on debugging.
+
+  -?, --help                       Show this help message.
+      --version                    Show the version.
+
+Validatable things: pkgname, archname, trigname, version.
+
+Use dpkg with -b, --build, -c, --contents, -e, --control, -I, --info,
+  -f, --field, -x, --extract, -X, --vextract, --ctrl-tarfile, --fsys-tarfile
+on archives (type dpkg-deb --help).
+
+Options:
+  --admindir=<directory>     Use <directory> instead of /var/lib/dpkg.
+  --root=<directory>         Install on a different root directory.
+  --instdir=<directory>      Change installation dir without changing admin dir.
+  --pre-invoke=<command>     Set a pre-invoke hook.
+  --post-invoke=<command>    Set a post-invoke hook.
+  --path-exclude=<pattern>   Do not install paths which match a shell pattern.
+  --path-include=<pattern>   Re-include a pattern after a previous exclusion.
+  -O|--selected-only         Skip packages not selected for install/upgrade.
+  -E|--skip-same-version     Skip packages whose same version is installed.
+  -G|--refuse-downgrade      Skip packages with earlier version than installed.
+  -B|--auto-deconfigure      Install even if it would break some other package.
+  --[no-]triggers            Skip or force consequential trigger processing.
+  --verify-format=<format>   Verify output format (supported: 'rpm').
+  --no-pager                 Disables the use of any pager.
+  --no-debsig                Do not try to verify package signatures.
+  --no-act|--dry-run|--simulate
+                             Just say what we would do - don't do it.
+  -D|--debug=<octal>         Enable debugging (see -Dhelp or --debug=help).
+  --status-fd <n>            Send status change updates to file descriptor <n>.
+  --status-logger=<command>  Send status change updates to <command>'s stdin.
+  --log=<filename>           Log status changes and actions to <filename>.
+  --ignore-depends=<package>[,...]
+                             Ignore dependencies involving <package>.
+  --force-<thing>[,...]      Override problems (see --force-help).
+  --no-force-<thing>[,...]   Stop when problems encountered.
+  --refuse-<thing>[,...]     Ditto.
+  --abort-after <n>          Abort after encountering <n> errors.
+  --robot                    Use machine-readable output on some commands.
+
+Comparison operators for --compare-versions are:
+  lt le eq ne ge gt       (treat empty version as earlier than any version);
+  lt-nl le-nl ge-nl gt-nl (treat empty version as later than any version);
+  < << <= = >= >> >       (only for compatibility with control file syntax).
+
+Use 'apt' or 'aptitude' for user-friendly package management.
+ever@ubuntu-vm:/etc/apt/sources.list.d$ dpkg -r nginx
+dpkg: error: requested operation requires superuser privilege
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo dpkg -r nginx
+(Reading database ... 217159 files and directories currently installed.)
+Removing nginx (1.24.0-1~jammy) ...
+Processing triggers for man-db (2.10.2-1) ...
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo dpkg -l
+
+<snipped>
+
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo dpkg -l nginx
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name           Version        Architecture Description
++++-==============-==============-============-=================================
+rc  nginx          1.24.0-1~jammy amd64        high performance web server
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo apt autoremove
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+0 upgraded, 0 newly installed, 0 to remove and 36 not upgraded.
+ever@ubuntu-vm:/etc/apt/sources.list.d$ sudo dpkg -r nginx
+dpkg: warning: ignoring request to remove nginx, only the config
+ files of which are on the system; use --purge to remove them too
+ever@ubuntu-vm:/etc/apt/sources.list.d$ snap --help
+The snap command lets you install, configure, refresh and remove snaps.
+Snaps are packages that work across many different Linux distributions,
+enabling secure delivery and operation of the latest apps and utilities.
+
+Usage: snap <command> [<options>...]
+
+Commonly used commands can be classified as follows:
+
+           Basics: find, info, install, remove, list
+          ...more: refresh, revert, switch, disable, enable, create-cohort
+          History: changes, tasks, abort, watch
+          Daemons: services, start, stop, restart, logs
+      Permissions: connections, interface, connect, disconnect
+    Configuration: get, set, unset, wait
+      App Aliases: alias, aliases, unalias, prefer
+          Account: login, logout, whoami
+        Snapshots: saved, save, check-snapshot, restore, forget
+           Device: model, reboot, recovery
+     Quota Groups: set-quota, remove-quota, quotas, quota
+  Validation Sets: validate
+        ... Other: warnings, okay, known, ack, version
+      Development: validate
+
+For more information about a command, run 'snap help <command>'.
+For a short summary of all commands, run 'snap help --all'.
+ever@ubuntu-vm:/etc/apt/sources.list.d$ cd 
+ever@ubuntu-vm:~$ ll
+total 112
+drwxr-x--- 18 ever ever   4096 апр 28 17:59 ./
+drwxr-xr-x  4 root root   4096 апр 22 16:51 ../
+-rw-------  1 ever ever   3677 апр 22 19:25 .bash_history
+-rw-r--r--  1 ever ever    220 мар 26 10:11 .bash_logout
+-rw-r--r--  1 ever ever   3771 мар 26 10:11 .bashrc
+drwx------ 13 ever ever   4096 мар 26 12:41 .cache/
+drwx------ 14 ever ever   4096 мар 26 13:10 .config/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Desktop/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Documents/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Downloads/
+drwx------  2 ever ever   4096 мар 26 11:38 .gnupg/
+drwxrwxr-x  4 ever ever   4096 апр 22 18:42 homeworks/
+-rw-------  1 ever ever     20 апр 28 17:59 .lesshst
+drwx------  3 ever ever   4096 мар 26 10:21 .local/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Music/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Pictures/
+-rw-r--r--  1 ever ever    807 мар 26 10:11 .profile
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Public/
+-rw-rw-r--  1 ever ever     66 мар 26 13:01 .selected_editor
+drwxrwx---  1 root vboxsf    0 мар 26 12:53 shared/
+drwx------  5 ever ever   4096 мар 26 11:38 snap/
+drwx------  2 ever ever   4096 мар 26 11:38 .ssh/
+-rw-r--r--  1 ever ever      0 мар 26 10:46 .sudo_as_admin_successful
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Templates/
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-clipboard.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-draganddrop.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-seamless.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-vmsvga-session-tty2.pid
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Videos/
+-rw-------  1 ever ever   1597 апр 21 21:07 .viminfo
+ever@ubuntu-vm:~$ cd ..
+ever@ubuntu-vm:/home$ ll
+total 16
+drwxr-xr-x  4 root         root    4096 апр 22 16:51 ./
+drwxr-xr-x 20 root         root    4096 мар 26 10:11 ../
+drwxr-x--- 18 ever         ever    4096 апр 28 17:59 ever/
+drwxr-x---  3 practiceuser prgroup 4096 апр 22 19:01 practiceuser/
+ever@ubuntu-vm:/home$ cd ..
+ever@ubuntu-vm:/$ ll
+total 2744408
+drwxr-xr-x  20 root root       4096 мар 26 10:11 ./
+drwxr-xr-x  20 root root       4096 мар 26 10:11 ../
+lrwxrwxrwx   1 root root          7 мар 26 10:09 bin -> usr/bin/
+drwxr-xr-x   4 root root       4096 мар 26 12:50 boot/
+drwxrwxr-x   2 root root       4096 мар 26 10:11 cdrom/
+drwxr-xr-x  19 root root       4260 апр 28 17:49 dev/
+drwxr-xr-x 132 root root      12288 апр 28 18:33 etc/
+drwxr-xr-x   4 root root       4096 апр 22 16:51 home/
+lrwxrwxrwx   1 root root          7 мар 26 10:09 lib -> usr/lib/
+lrwxrwxrwx   1 root root          9 мар 26 10:09 lib32 -> usr/lib32/
+lrwxrwxrwx   1 root root          9 мар 26 10:09 lib64 -> usr/lib64/
+lrwxrwxrwx   1 root root         10 мар 26 10:09 libx32 -> usr/libx32/
+drwx------   2 root root      16384 мар 26 10:08 lost+found/
+drwxr-xr-x   3 root root       4096 мар 26 10:37 media/
+drwxr-xr-x   2 root root       4096 фев 23 06:57 mnt/
+drwxr-xr-x   3 root root       4096 мар 26 12:49 opt/
+dr-xr-xr-x 286 root root          0 апр 28 17:38 proc/
+drwx------   5 root root       4096 апр 28 18:40 root/
+drwxr-xr-x  35 root root        960 апр 28 17:38 run/
+lrwxrwxrwx   1 root root          8 мар 26 10:09 sbin -> usr/sbin/
+drwxr-xr-x  13 root root       4096 мар 26 12:41 snap/
+drwxr-xr-x   2 root root       4096 фев 23 06:57 srv/
+-rw-------   1 root root 2810183680 мар 26 10:08 swapfile
+dr-xr-xr-x  13 root root          0 апр 28 17:38 sys/
+drwxrwxrwt  19 root root       4096 апр 28 18:32 tmp/
+drwxr-xr-x  14 root root       4096 фев 23 06:57 usr/
+drwxr-xr-x  14 root root       4096 фев 23 07:02 var/
+ever@ubuntu-vm:/$ snap search notepadqq
+Name       Version  Publisher  Notes  Summary
+notepadqq  1.4.8    danieleds  -      A Notepad++-like editor for Linux.
+ever@ubuntu-vm:/$ snap install notepadqq
+notepadqq 1.4.8 from Daniele Di Sarli (danieleds) installed
+ever@ubuntu-vm:/$ copy --help
+Command 'copy' not found, did you mean:
+  command 'opy' from snap opy (latest)
+  command 'copay' from snap copay (12.5.6)
+  command 'fcopy' from deb fai-client (5.10.3ubuntu1)
+  command 'copyq' from deb copyq (6.0.1-1)
+  command 'ropy' from deb libdisorder-tools (0.0.2+git20130809.8062ee1-4)
+  command 'mcopy' from deb mtools (4.0.33-1+really4.0.32-1build1)
+  command 'rcopy' from deb rdmacm-utils (39.0-1)
+  command 'hcopy' from deb hfsutils (3.2.6-15build2)
+See 'snap info <snapname>' for additional versions.
+ever@ubuntu-vm:/$ cp -h
+cp: invalid option -- 'h'
+Try 'cp --help' for more information.
+ever@ubuntu-vm:/$ cp --hel
+Usage: cp [OPTION]... [-T] SOURCE DEST
+  or:  cp [OPTION]... SOURCE... DIRECTORY
+  or:  cp [OPTION]... -t DIRECTORY SOURCE...
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --archive                same as -dR --preserve=all
+      --attributes-only        don't copy the file data, just the attributes
+      --backup[=CONTROL]       make a backup of each existing destination file
+  -b                           like --backup but does not accept an argument
+      --copy-contents          copy contents of special files when recursive
+  -d                           same as --no-dereference --preserve=links
+  -f, --force                  if an existing destination file cannot be
+                                 opened, remove it and try again (this option
+                                 is ignored when the -n option is also used)
+  -i, --interactive            prompt before overwrite (overrides a previous -n
+                                  option)
+  -H                           follow command-line symbolic links in SOURCE
+  -l, --link                   hard link files instead of copying
+  -L, --dereference            always follow symbolic links in SOURCE
+  -n, --no-clobber             do not overwrite an existing file (overrides
+                                 a previous -i option)
+  -P, --no-dereference         never follow symbolic links in SOURCE
+  -p                           same as --preserve=mode,ownership,timestamps
+      --preserve[=ATTR_LIST]   preserve the specified attributes (default:
+                                 mode,ownership,timestamps), if possible
+                                 additional attributes: context, links, xattr,
+                                 all
+      --no-preserve=ATTR_LIST  don't preserve the specified attributes
+      --parents                use full source file name under DIRECTORY
+  -R, -r, --recursive          copy directories recursively
+      --reflink[=WHEN]         control clone/CoW copies. See below
+      --remove-destination     remove each existing destination file before
+                                 attempting to open it (contrast with --force)
+      --sparse=WHEN            control creation of sparse files. See below
+      --strip-trailing-slashes  remove any trailing slashes from each SOURCE
+                                 argument
+  -s, --symbolic-link          make symbolic links instead of copying
+  -S, --suffix=SUFFIX          override the usual backup suffix
+  -t, --target-directory=DIRECTORY  copy all SOURCE arguments into DIRECTORY
+  -T, --no-target-directory    treat DEST as a normal file
+  -u, --update                 copy only when the SOURCE file is newer
+                                 than the destination file or when the
+                                 destination file is missing
+  -v, --verbose                explain what is being done
+  -x, --one-file-system        stay on this file system
+  -Z                           set SELinux security context of destination
+                                 file to default type
+      --context[=CTX]          like -Z, or if CTX is specified then set the
+                                 SELinux or SMACK security context to CTX
+      --help     display this help and exit
+      --version  output version information and exit
+
+By default, sparse SOURCE files are detected by a crude heuristic and the
+corresponding DEST file is made sparse as well.  That is the behavior
+selected by --sparse=auto.  Specify --sparse=always to create a sparse DEST
+file whenever the SOURCE file contains a long enough sequence of zero bytes.
+Use --sparse=never to inhibit creation of sparse files.
+
+When --reflink[=always] is specified, perform a lightweight copy, where the
+data blocks are copied only when modified.  If this is not possible the copy
+fails, or if --reflink=auto is specified, fall back to a standard copy.
+Use --reflink=never to ensure a standard copy is performed.
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       never make backups (even if --backup is given)
+  numbered, t     make numbered backups
+  existing, nil   numbered if numbered backups exist, simple otherwise
+  simple, never   always make simple backups
+
+As a special case, cp makes a backup of SOURCE when the force and backup
+options are given and SOURCE and DEST are the same name for an existing,
+regular file.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/cp>
+or available locally via: info '(coreutils) cp invocation'
+ever@ubuntu-vm:/$ cd
+ever@ubuntu-vm:~$ ll
+total 112
+drwxr-x--- 18 ever ever   4096 апр 28 17:59 ./
+drwxr-xr-x  4 root root   4096 апр 22 16:51 ../
+-rw-------  1 ever ever   3677 апр 22 19:25 .bash_history
+-rw-r--r--  1 ever ever    220 мар 26 10:11 .bash_logout
+-rw-r--r--  1 ever ever   3771 мар 26 10:11 .bashrc
+drwx------ 13 ever ever   4096 мар 26 12:41 .cache/
+drwx------ 14 ever ever   4096 мар 26 13:10 .config/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Desktop/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Documents/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Downloads/
+drwx------  2 ever ever   4096 мар 26 11:38 .gnupg/
+drwxrwxr-x  4 ever ever   4096 апр 22 18:42 homeworks/
+-rw-------  1 ever ever     20 апр 28 17:59 .lesshst
+drwx------  3 ever ever   4096 мар 26 10:21 .local/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Music/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Pictures/
+-rw-r--r--  1 ever ever    807 мар 26 10:11 .profile
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Public/
+-rw-rw-r--  1 ever ever     66 мар 26 13:01 .selected_editor
+drwxrwx---  1 root vboxsf    0 мар 26 12:53 shared/
+drwx------  5 ever ever   4096 мар 26 11:38 snap/
+drwx------  2 ever ever   4096 мар 26 11:38 .ssh/
+-rw-r--r--  1 ever ever      0 мар 26 10:46 .sudo_as_admin_successful
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Templates/
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-clipboard.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-draganddrop.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-seamless.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-vmsvga-session-tty2.pid
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Videos/
+-rw-------  1 ever ever   1597 апр 21 21:07 .viminfo
+ever@ubuntu-vm:~$ cd ..
+ever@ubuntu-vm:/home$ ll
+total 16
+drwxr-xr-x  4 root         root    4096 апр 22 16:51 ./
+drwxr-xr-x 20 root         root    4096 мар 26 10:11 ../
+drwxr-x--- 18 ever         ever    4096 апр 28 17:59 ever/
+drwxr-x---  3 practiceuser prgroup 4096 апр 22 19:01 practiceuser/
+ever@ubuntu-vm:/home$ cd ever/
+ever@ubuntu-vm:~$ ll
+total 112
+drwxr-x--- 18 ever ever   4096 апр 28 17:59 ./
+drwxr-xr-x  4 root root   4096 апр 22 16:51 ../
+-rw-------  1 ever ever   3677 апр 22 19:25 .bash_history
+-rw-r--r--  1 ever ever    220 мар 26 10:11 .bash_logout
+-rw-r--r--  1 ever ever   3771 мар 26 10:11 .bashrc
+drwx------ 13 ever ever   4096 мар 26 12:41 .cache/
+drwx------ 14 ever ever   4096 мар 26 13:10 .config/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Desktop/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Documents/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Downloads/
+drwx------  2 ever ever   4096 мар 26 11:38 .gnupg/
+drwxrwxr-x  4 ever ever   4096 апр 22 18:42 homeworks/
+-rw-------  1 ever ever     20 апр 28 17:59 .lesshst
+drwx------  3 ever ever   4096 мар 26 10:21 .local/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Music/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Pictures/
+-rw-r--r--  1 ever ever    807 мар 26 10:11 .profile
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Public/
+-rw-rw-r--  1 ever ever     66 мар 26 13:01 .selected_editor
+drwxrwx---  1 root vboxsf    0 мар 26 12:53 shared/
+drwx------  5 ever ever   4096 мар 26 11:38 snap/
+drwx------  2 ever ever   4096 мар 26 11:38 .ssh/
+-rw-r--r--  1 ever ever      0 мар 26 10:46 .sudo_as_admin_successful
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Templates/
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-clipboard.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-draganddrop.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-seamless.pid
+-rw-r-----  1 ever ever      5 апр 28 17:38 .vboxclient-vmsvga-session-tty2.pid
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Videos/
+-rw-------  1 ever ever   1597 апр 21 21:07 .viminfo
+ever@ubuntu-vm:~$ cd homeworks/
+ever@ubuntu-vm:~/homeworks$ mkdir hw4
+ever@ubuntu-vm:~/homeworks$ cd hw4
+ever@ubuntu-vm:~/homeworks/hw4$ cat > test.txt
+This is info to be backuped            
+^C
+ever@ubuntu-vm:~/homeworks/hw4$ crontab -l
+no crontab for ever
+ever@ubuntu-vm:~/homeworks/hw4$ crontab -e
+no crontab for ever - using an empty one
+No modification made
+ever@ubuntu-vm:~/homeworks/hw4$ passwd
+Changing password for ever.
+Current password: 
+Current Password: 
+asd
+passwd: Authentication token manipulation error
+passwd: password unchanged
+ever@ubuntu-vm:~/homeworks/hw4$ asd
+Command 'asd' not found, but there are 21 similar ones.
+ever@ubuntu-vm:~/homeworks/hw4$ pwd
+/home/ever/homeworks/hw4
+ever@ubuntu-vm:~/homeworks/hw4$ crontab -e
+no crontab for ever - using an empty one
+crontab: installing new crontab
+"/tmp/crontab.CHnrow/crontab":23: bad minute
+errors in crontab file, can't install.
+Do you want to retry the same edit? (y/n) y
+crontab: installing new crontab
+ever@ubuntu-vm:~/homeworks/hw4$ crontab -l
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+0,10,20,30,40,50 * * * * cp /home/ever/homeworks/hw4/test.txt /home/ever/homeworks/hw4/test.txt.bak
+ever@ubuntu-vm:~/homeworks/hw4$ ll
+total 16
+drwxrwxr-x 2 ever ever 4096 апр 28 19:20 ./
+drwxrwxr-x 5 ever ever 4096 апр 28 19:07 ../
+-rw-rw-r-- 1 ever ever   28 апр 28 19:08 test.txt
+-rw-rw-r-- 1 ever ever   28 апр 28 19:20 test.txt.bak
+ever@ubuntu-vm:~/homeworks/hw4$ less test.txt.bak 
+ever@ubuntu-vm:~/homeworks/hw4$ 
+
+
+

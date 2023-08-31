@@ -1,0 +1,55 @@
+history 
+
+win+space - смена раскладки
+
+rm somedir/*  - удаляет все файлы в somedir/, но не вложенные папки
+
+less - консольный просмотр файла. Выход по q, листание крусором, пробелом
+
+mkdir 
+		-p - создание вложеннных сразу
+
+mv file1 file2 - переименование или копирование-удаление, если между файловыми системами
+
+cd . -жесткая ссылка на текущую папку,часто используется в относительных путях
+	.. - жесткая ссылка на директорию выше
+	
+ln - работа с  файлами-линка(ссылки) (создание нового)
+
+
+cat > filename - открывает поток в консоли, который пишет в файл с этим названием, перезапись
+cat >> - добавление после
+cat file1  file2 > file_total - склеивание файлов
+
+touch название_файла - создание пустого файла
+
+аналог dir
+ls -a в том числе скрытые 
+	-l списком с подробностями
+	-i - вместе и индексными inode(блоки на диске)
+	--help , полные команды через --
+	
+
+Редакторы:
+vim file - I-редактирование ,ESC - командный режим(просмотр, удаление строк) -> : w,q(!q),set - аргументы выхода 
+vimtutor - мануал
+
+Еще популярны nano , mcedit 
+
+
+cd: Change the directory to a different location.
+ls: List the contents of the current directory.
+mkdir: Create a new directory.
+touch: Create a new file.
+rm: Remove a file or directory.
+cp: Copy a file or directory.
+mv: Move or rename a file or directory.
+echo: Print text to the terminal.
+cat: Concatenate and print the contents of a file.
+grep: Search for a pattern in a file.
+chmod: Change the permissions of a file or directory.
+sudo: Run a command with administrative privileges.
+df: Display the amount of disk space available.
+history: Show a list of previously executed commands.
+ps: Display information about running processes.
+

@@ -1,0 +1,70 @@
+
+
+
+
+/etc/passwd
+/etc/group
+/etc/shadow
+/etc/skel - набор файлов при создании домашней паки нового пользователя
+
+
+useradd ouruser- new user with login ouruser
+		-s - добавляет оболочку с указанием пути , /bin/bash
+		-d - путь к папке /home/ouruser
+		-m - создать домашнюю директорию
+adduser - new user with script
+usermod - change user
+		-a - append
+		-G - список вторичных групп 
+		-g - изменение основной группы
+sudo usermod -aG adm testuser
+id - check all ids of current user
+deluser - deluser USER GROUP
+  remove the user from a group
+  example: deluser mike students
+
+userdel - remove user
+      -r  - also deletes home directory and mail
+passwd - change password
+chage - изменение свойств пароля (сроки действия)
+groupadd - new group
+groupdel - remove group
+
+
+su -substitute, переключение пользователя
+exit - выход из вложенной оболочки
+sudo - права рут пользователя на одну команду
+sudo su  - полное переключение на рута
+visudo - редактируем список групп с доступом к sudo командам  в /etc/sudoers/
+
+
+доступ к файлам по указанным правам доступа(read-write) 
+chown - change owner , group 
+		-R -рекурсивно
+	chown newOwner : newGroup
+	chown newOwner
+chgrp - как команда выше, но меняет только группу
+
+можно себя закоцать по доступу!
+
+
+Права доступа (read write execute/исполнение)
+-владелец группа остальные
+-rwx r-x r-- (3 бита доступа на каждого)
+
+специальные биты доступа:
+SUID -s вместо х у владельца. -S - нет x, есть бит. Запускаем от имени владельца этого файла
+SGID  -s у группы, полезен для директорий. Все файлы, создаваемые внутри директории, получат группу от директории
+Sticky bit -t у остальных, для директорий ,удаление файлов только их владельцами
+
+chmod -R folder
+chmod -r folder - убираем чтение у папки (+r) 
+chmod u=rwx,g=rx.o=r somefile
+chmod 751 somefile - цифровое представление набора прав
+4-read , write 2 ,execute 1 , 4+2+1 =7
+в mcedit ctrl+X , C (Доступ восьмеричный)
+
+chmod a+x - all files get x
+chmod 4755 - первой цифрой спецбит
+
+umask - это набор битов для понижения прав от полных по умолчанию , 666 полные  - 022 umask ->644 права по умолчанию в системе

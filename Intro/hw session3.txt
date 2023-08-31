@@ -1,0 +1,921 @@
+ever@ubuntu-vm:~$ history -c
+ever@ubuntu-vm:~$ sudo useradd -s /bin/bash -m -d /home/practiceuser practiceuser
+ever@ubuntu-vm:~$ tal /etc/passwd
+Command 'tal' not found, but there are 19 similar ones.
+ever@ubuntu-vm:~$ tail /etc/passwd
+colord:x:123:130:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+geoclue:x:124:131::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:125:132:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:126:65534::/run/gnome-initial-setup/:/bin/false
+hplip:x:127:7:HPLIP system user,,,:/run/hplip:/bin/false
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+ever:x:1000:1000:Tony,,,:/home/ever:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
+practiceuser:x:1001:1001::/home/practiceuser:/bin/bash
+ever@ubuntu-vm:~$ cd /home/
+ever@ubuntu-vm:/home$ ls
+ever  practiceuser
+ever@ubuntu-vm:/home$ cd ..
+ever@ubuntu-vm:/$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,ever
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:ever
+floppy:x:25:
+tape:x:26:
+sudo:x:27:ever
+audio:x:29:pulse
+dip:x:30:ever
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+gnats:x:41:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:ever
+staff:x:50:
+games:x:60:
+users:x:100:
+nogroup:x:65534:
+systemd-journal:x:101:
+systemd-network:x:102:
+systemd-resolve:x:103:
+crontab:x:104:
+messagebus:x:105:
+systemd-timesync:x:106:
+input:x:107:
+sgx:x:108:
+kvm:x:109:
+render:x:110:
+syslog:x:111:
+tss:x:112:
+bluetooth:x:113:
+ssl-cert:x:114:
+uuidd:x:115:
+systemd-oom:x:116:
+tcpdump:x:117:
+_ssh:x:118:
+avahi-autoipd:x:119:
+netdev:x:120:
+avahi:x:121:
+lpadmin:x:122:ever
+rtkit:x:123:
+whoopsie:x:124:
+sssd:x:125:
+fwupd-refresh:x:126:
+nm-openvpn:x:127:
+scanner:x:128:saned
+saned:x:129:
+colord:x:130:
+geoclue:x:131:
+pulse:x:132:
+pulse-access:x:133:
+gdm:x:134:
+lxd:x:135:ever
+ever:x:1000:
+sambashare:x:136:ever
+vboxsf:x:999:ever
+vboxdrmipc:x:998:
+practiceuser:x:1001:
+ever@ubuntu-vm:/$ sudo adduser fastuser2
+Adding user `fastuser2' ...
+Adding new group `fastuser2' (1002) ...
+Adding new user `fastuser2' (1002) with group `fastuser2' ...
+Creating home directory `/home/fastuser2' ...
+Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+Sorry, passwords do not match.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+Sorry, passwords do not match.
+New password: 
+BAD PASSWORD: The password fails the dictionary check - it is based on a dictionary word
+Retype new password: 
+Sorry, passwords do not match.
+passwd: Have exhausted maximum number of retries for service
+passwd: password unchanged
+Try again? [y/N] y
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for fastuser2
+Enter the new value, or press ENTER for the default
+	Full Name []: User Autoscript
+	Room Number []: 13
+	Work Phone []: 352351
+	Home Phone []: 3111234
+	Other []: misc
+Is the information correct? [Y/n] y
+ever@ubuntu-vm:/$ sudo passwd practiceuser
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+ever@ubuntu-vm:/$ sudo tail /etc/shadow
+geoclue:*:19411:0:99999:7:::
+pulse:*:19411:0:99999:7:::
+gnome-initial-setup:*:19411:0:99999:7:::
+hplip:*:19411:0:99999:7:::
+gdm:*:19411:0:99999:7:::
+ever:$y$j9T$fn3HLEphjdrT1gXSnTf.t.$pPrJOeKRoJ/SVCc5UcAEpmKSaHqN/fd9Cjac/bIpFD7:19442:0:99999:7:::
+vboxadd:!:19442::::::
+sshd:*:19442:0:99999:7:::
+practiceuser:$y$j9T$BI6H8aZ.3eZttYe3kj.nN0$DxpjVkxdhzyV5rY4SqUNGBa7.4SaLr.TH9XjKiHRrv0:19469:0:99999:7:::
+fastuser2:$y$j9T$Jb9e4euXKWmRctHJL/7Yy/$05Bbp.KpF4MSa/Ph8taBZSRKR1NSqaWNl/DMmdnC16A:19469:0:99999:7:::
+ever@ubuntu-vm:/$ tail /etc/passwd
+geoclue:x:124:131::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:125:132:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:126:65534::/run/gnome-initial-setup/:/bin/false
+hplip:x:127:7:HPLIP system user,,,:/run/hplip:/bin/false
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+ever:x:1000:1000:Tony,,,:/home/ever:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
+practiceuser:x:1001:1001::/home/practiceuser:/bin/bash
+fastuser2:x:1002:1002:User Autoscript,13,352351,3111234,misc:/home/fastuser2:/bin/bash
+ever@ubuntu-vm:/$ sudo ls -al /home/fastuser2
+total 20
+drwxr-x--- 2 fastuser2 fastuser2 4096 апр 22 16:35 .
+drwxr-xr-x 5 root      root      4096 апр 22 16:35 ..
+-rw-r--r-- 1 fastuser2 fastuser2  220 апр 22 16:35 .bash_logout
+-rw-r--r-- 1 fastuser2 fastuser2 3771 апр 22 16:35 .bashrc
+-rw-r--r-- 1 fastuser2 fastuser2  807 апр 22 16:35 .profile
+ever@ubuntu-vm:/$ sudo userdel -r fastuser2
+userdel: fastuser2 mail spool (/var/mail/fastuser2) not found
+ever@ubuntu-vm:/$ sudo ls -al /home/fastuser2
+ls: cannot access '/home/fastuser2': No such file or directory
+ever@ubuntu-vm:/$ tail /etc/passwd
+colord:x:123:130:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+geoclue:x:124:131::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:125:132:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:126:65534::/run/gnome-initial-setup/:/bin/false
+hplip:x:127:7:HPLIP system user,,,:/run/hplip:/bin/false
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+ever:x:1000:1000:Tony,,,:/home/ever:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
+practiceuser:x:1001:1001::/home/practiceuser:/bin/bash
+ever@ubuntu-vm:/$ sudo groupadd prgroup
+ever@ubuntu-vm:/$ tail -n 3 /etc/group
+vboxdrmipc:x:998:
+practiceuser:x:1001:
+prgroup:x:1002:
+ever@ubuntu-vm:/$ sudo id practiceuser 
+uid=1001(practiceuser) gid=1001(practiceuser) groups=1001(practiceuser)
+ever@ubuntu-vm:/$ sudo usermod -g prgroup practiceuser 
+ever@ubuntu-vm:/$ sudo id practiceuser 
+uid=1001(practiceuser) gid=1002(prgroup) groups=1002(prgroup)
+ever@ubuntu-vm:/$ sudo usermod -aG adm  practiceuser 
+ever@ubuntu-vm:/$ sudo id practiceuser 
+uid=1001(practiceuser) gid=1002(prgroup) groups=1002(prgroup),4(adm)
+ever@ubuntu-vm:/$ usermod --help
+Usage: usermod [options] LOGIN
+
+Options:
+  -b, --badnames                allow bad names
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                the user from other groups
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -v, --add-subuids FIRST-LAST  add range of subordinate uids
+  -V, --del-subuids FIRST-LAST  remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST  add range of subordinate gids
+  -W, --del-subgids FIRST-LAST  remove range of subordinate gids
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+
+ever@ubuntu-vm:/$ sudo usermod -W 4 practiceuser 
+[sudo] password for ever: 
+usermod: invalid subordinate gid range '4'
+ever@ubuntu-vm:/$ sudo usermod -G practiceuser 
+Usage: usermod [options] LOGIN
+
+Options:
+  -b, --badnames                allow bad names
+  -c, --comment COMMENT         new value of the GECOS field
+  -d, --home HOME_DIR           new home directory for the user account
+  -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -f, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -g, --gid GROUP               force use GROUP as new primary group
+  -G, --groups GROUPS           new list of supplementary GROUPS
+  -a, --append                  append the user to the supplemental GROUPS
+                                mentioned by the -G option without removing
+                                the user from other groups
+  -h, --help                    display this help message and exit
+  -l, --login NEW_LOGIN         new value of the login name
+  -L, --lock                    lock the user account
+  -m, --move-home               move contents of the home directory to the
+                                new location (use only with -d)
+  -o, --non-unique              allow using duplicate (non-unique) UID
+  -p, --password PASSWORD       use encrypted password for the new password
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             new login shell for the user account
+  -u, --uid UID                 new UID for the user account
+  -U, --unlock                  unlock the user account
+  -v, --add-subuids FIRST-LAST  add range of subordinate uids
+  -V, --del-subuids FIRST-LAST  remove range of subordinate uids
+  -w, --add-subgids FIRST-LAST  add range of subordinate gids
+  -W, --del-subgids FIRST-LAST  remove range of subordinate gids
+  -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+
+ever@ubuntu-vm:/$ sudo usermod -G -4 practiceuser 
+usermod: group '-4' does not exist
+ever@ubuntu-vm:/$ sudo usermod -G -adm practiceuser 
+usermod: group '-adm' does not exist
+ever@ubuntu-vm:/$ groups --help
+Usage: groups [OPTION]... [USERNAME]...
+Print group memberships for each USERNAME or, if no USERNAME is specified, for
+the current process (which may differ if the groups database has changed).
+      --help     display this help and exit
+      --version  output version information and exit
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Full documentation <https://www.gnu.org/software/coreutils/groups>
+or available locally via: info '(coreutils) groups invocation'
+ever@ubuntu-vm:/$ deluser --help
+deluser USER
+  remove a normal user from the system
+  example: deluser mike
+
+  --remove-home             remove the users home directory and mail spool
+  --remove-all-files        remove all files owned by user
+  --backup                  backup files before removing.
+  --backup-to <DIR>         target directory for the backups.
+                            Default is the current directory.
+  --system                  only remove if system user
+
+delgroup GROUP
+deluser --group GROUP
+  remove a group from the system
+  example: deluser --group students
+
+  --system                  only remove if system group
+  --only-if-empty           only remove if no members left
+
+deluser USER GROUP
+  remove the user from a group
+  example: deluser mike students
+
+general options:
+  --quiet | -q      don't give process information to stdout
+  --help | -h       usage message
+  --version | -v    version number and copyright
+  --conf | -c FILE  use FILE as configuration file
+
+ever@ubuntu-vm:/$ ^C
+ever@ubuntu-vm:/$ sudo deluser practiceuser adm
+Removing user `practiceuser' from group `adm' ...
+Done.
+ever@ubuntu-vm:/$ su practiceuser
+Password: 
+practiceuser@ubuntu-vm:/$ whoami
+practiceuser
+practiceuser@ubuntu-vm:/$ id
+uid=1001(practiceuser) gid=1002(prgroup) groups=1002(prgroup)
+practiceuser@ubuntu-vm:/$ exit
+exit
+ever@ubuntu-vm:/$ useradd -h
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
+
+Options:
+      --badnames                do not check for bad names
+  -b, --base-dir BASE_DIR       base directory for the home directory of the
+                                new account
+      --btrfs-subvolume-home    use BTRFS subvolume for home directory
+  -c, --comment COMMENT         GECOS field of the new account
+  -d, --home-dir HOME_DIR       home directory of the new account
+  -D, --defaults                print or change default useradd configuration
+  -e, --expiredate EXPIRE_DATE  expiration date of the new account
+  -f, --inactive INACTIVE       password inactivity period of the new account
+  -g, --gid GROUP               name or ID of the primary group of the new
+                                account
+  -G, --groups GROUPS           list of supplementary groups of the new
+                                account
+  -h, --help                    display this help message and exit
+  -k, --skel SKEL_DIR           use this alternative skeleton directory
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -l, --no-log-init             do not add the user to the lastlog and
+                                faillog databases
+  -m, --create-home             create the user's home directory
+  -M, --no-create-home          do not create the user's home directory
+  -N, --no-user-group           do not create a group with the same name as
+                                the user
+  -o, --non-unique              allow to create users with duplicate
+                                (non-unique) UID
+  -p, --password PASSWORD       encrypted password of the new account
+  -r, --system                  create a system account
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             login shell of the new account
+  -u, --uid UID                 user ID of the new account
+  -U, --user-group              create a group with the same name as the user
+  -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping
+      --extrausers              Use the extra users database
+
+ever@ubuntu-vm:/$ sudo useradd -u 0 -g 0 -N  superstudent
+useradd: UID 0 is not unique
+ever@ubuntu-vm:/$ sudo useradd -u 1100 -g 0 -N  superstudent
+ever@ubuntu-vm:/$ sudo id superstudent
+uid=1100(superstudent) gid=0(root) groups=0(root)
+ever@ubuntu-vm:/$ sudo passwd superstudent 
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: password updated successfully
+ever@ubuntu-vm:/$ su superstudent
+Password: 
+$ sudo apt update
+[sudo] password for superstudent: 
+superstudent is not in the sudoers file.  This incident will be reported.
+$ exit
+ever@ubuntu-vm:/$ visudo
+visudo: /etc/sudoers: Permission denied
+ever@ubuntu-vm:/$ sudo visudo
+visudo: /etc/sudoers.tmp unchanged
+ever@ubuntu-vm:/$ echo так как UID не 0, то рутовая группа такому пользователю не особо помогает
+так как UID не 0, то рутовая группа такому пользователю не особо помогает
+ever@ubuntu-vm:/$ sudo groupadd developer
+ever@ubuntu-vm:/$ tail /etc/passwd/
+tail: cannot open '/etc/passwd/' for reading: Not a directory
+ever@ubuntu-vm:/$ tail /etc/passwd
+geoclue:x:124:131::/var/lib/geoclue:/usr/sbin/nologin
+pulse:x:125:132:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:126:65534::/run/gnome-initial-setup/:/bin/false
+hplip:x:127:7:HPLIP system user,,,:/run/hplip:/bin/false
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+ever:x:1000:1000:Tony,,,:/home/ever:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
+practiceuser:x:1001:1002::/home/practiceuser:/bin/bash
+superstudent:x:1100:0::/home/superstudent:/bin/sh
+ever@ubuntu-vm:/$ sudo useradd -g developer -N  devstudent
+ever@ubuntu-vm:/$ tail /etc/passwd
+pulse:x:125:132:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+gnome-initial-setup:x:126:65534::/run/gnome-initial-setup/:/bin/false
+hplip:x:127:7:HPLIP system user,,,:/run/hplip:/bin/false
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+ever:x:1000:1000:Tony,,,:/home/ever:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+sshd:x:129:65534::/run/sshd:/usr/sbin/nologin
+practiceuser:x:1001:1002::/home/practiceuser:/bin/bash
+superstudent:x:1100:0::/home/superstudent:/bin/sh
+devstudent:x:1101:1003::/home/devstudent:/bin/sh
+ever@ubuntu-vm:/$ cd /home/
+ever@ubuntu-vm:/home$ ll
+total 16
+drwxr-xr-x  4 root         root    4096 апр 22 16:51 ./
+drwxr-xr-x 20 root         root    4096 мар 26 10:11 ../
+drwxr-x--- 18 ever         ever    4096 апр 22 16:17 ever/
+drwxr-x---  2 practiceuser prgroup 4096 апр 22 18:23 practiceuser/
+ever@ubuntu-vm:/home$ cd ..
+ever@ubuntu-vm:/$ ll
+total 2744408
+drwxr-xr-x  20 root root       4096 мар 26 10:11 ./
+drwxr-xr-x  20 root root       4096 мар 26 10:11 ../
+lrwxrwxrwx   1 root root          7 мар 26 10:09 bin -> usr/bin/
+drwxr-xr-x   4 root root       4096 мар 26 12:50 boot/
+drwxrwxr-x   2 root root       4096 мар 26 10:11 cdrom/
+drwxr-xr-x  19 root root       4240 апр 22 16:17 dev/
+drwxr-xr-x 131 root root      12288 апр 22 18:40 etc/
+drwxr-xr-x   4 root root       4096 апр 22 16:51 home/
+lrwxrwxrwx   1 root root          7 мар 26 10:09 lib -> usr/lib/
+lrwxrwxrwx   1 root root          9 мар 26 10:09 lib32 -> usr/lib32/
+lrwxrwxrwx   1 root root          9 мар 26 10:09 lib64 -> usr/lib64/
+lrwxrwxrwx   1 root root         10 мар 26 10:09 libx32 -> usr/libx32/
+drwx------   2 root root      16384 мар 26 10:08 lost+found/
+drwxr-xr-x   3 root root       4096 мар 26 10:37 media/
+drwxr-xr-x   2 root root       4096 фев 23 06:57 mnt/
+drwxr-xr-x   3 root root       4096 мар 26 12:49 opt/
+dr-xr-xr-x 277 root root          0 апр 22 16:17 proc/
+drwx------   5 root root       4096 мар 26 13:00 root/
+drwxr-xr-x  35 root root        960 апр 22 16:17 run/
+lrwxrwxrwx   1 root root          8 мар 26 10:09 sbin -> usr/sbin/
+drwxr-xr-x  13 root root       4096 мар 26 12:41 snap/
+drwxr-xr-x   2 root root       4096 фев 23 06:57 srv/
+-rw-------   1 root root 2810183680 мар 26 10:08 swapfile
+dr-xr-xr-x  13 root root          0 апр 22 16:17 sys/
+drwxrwxrwt  18 root root       4096 апр 22 18:19 tmp/
+drwxr-xr-x  14 root root       4096 фев 23 06:57 usr/
+drwxr-xr-x  14 root root       4096 фев 23 07:02 var/
+ever@ubuntu-vm:/$ cd ~
+ever@ubuntu-vm:~$ ll
+total 112
+drwxr-x--- 18 ever ever   4096 апр 22 16:17 ./
+drwxr-xr-x  4 root root   4096 апр 22 16:51 ../
+-rw-------  1 ever ever   1640 апр 21 22:03 .bash_history
+-rw-r--r--  1 ever ever    220 мар 26 10:11 .bash_logout
+-rw-r--r--  1 ever ever   3771 мар 26 10:11 .bashrc
+drwx------ 13 ever ever   4096 мар 26 12:41 .cache/
+drwx------ 14 ever ever   4096 мар 26 13:10 .config/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Desktop/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Documents/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Downloads/
+drwx------  2 ever ever   4096 мар 26 11:38 .gnupg/
+drwxrwxr-x  3 ever ever   4096 апр 21 21:31 homeworks/
+-rw-------  1 ever ever     20 апр 21 21:30 .lesshst
+drwx------  3 ever ever   4096 мар 26 10:21 .local/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Music/
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Pictures/
+-rw-r--r--  1 ever ever    807 мар 26 10:11 .profile
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Public/
+-rw-rw-r--  1 ever ever     66 мар 26 13:01 .selected_editor
+drwxrwx---  1 root vboxsf    0 мар 26 12:53 shared/
+drwx------  5 ever ever   4096 мар 26 11:38 snap/
+drwx------  2 ever ever   4096 мар 26 11:38 .ssh/
+-rw-r--r--  1 ever ever      0 мар 26 10:46 .sudo_as_admin_successful
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Templates/
+-rw-r-----  1 ever ever      5 апр 22 16:17 .vboxclient-clipboard.pid
+-rw-r-----  1 ever ever      5 апр 22 16:17 .vboxclient-draganddrop.pid
+-rw-r-----  1 ever ever      5 апр 22 16:17 .vboxclient-seamless.pid
+-rw-r-----  1 ever ever      5 апр 22 16:17 .vboxclient-vmsvga-session-tty2.pid
+drwxr-xr-x  2 ever ever   4096 мар 26 10:21 Videos/
+-rw-------  1 ever ever   1597 апр 21 21:07 .viminfo
+ever@ubuntu-vm:~$ cd homeworks/
+ever@ubuntu-vm:~/homeworks$ mkdir -p devs/devshare/
+ever@ubuntu-vm:~/homeworks$ ll
+total 16
+drwxrwxr-x  4 ever ever 4096 апр 22 18:42 ./
+drwxr-x--- 18 ever ever 4096 апр 22 16:17 ../
+drwxrwxr-x  3 ever ever 4096 апр 22 18:42 devs/
+drwxrwxr-x  2 ever ever 4096 апр 21 21:29 subdir/
+ever@ubuntu-vm:~/homeworks$ groups developer
+groups: ‘developer’: no such user
+ever@ubuntu-vm:~/homeworks$ members developer
+Command 'members' not found, but can be installed with:
+sudo apt install members
+ever@ubuntu-vm:~/homeworks$ member developer
+Command 'member' not found, did you mean:
+  command 'members' from deb members (20080128.1+nmu1build1)
+Try: sudo apt install <deb name>
+ever@ubuntu-vm:~/homeworks$ sudo usermod -aG developer practiceuser 
+ever@ubuntu-vm:~/homeworks$ sudo usermod -aG developer superstudent 
+ever@ubuntu-vm:~/homeworks$ tail -n 3 /etc/group
+practiceuser:x:1001:
+prgroup:x:1002:
+developer:x:1003:practiceuser,superstudent
+ever@ubuntu-vm:~/homeworks$ cd devs/
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 12
+drwxrwxr-x 3 ever ever 4096 апр 22 18:42 ./
+drwxrwxr-x 4 ever ever 4096 апр 22 18:42 ../
+drwxrwxr-x 2 ever ever 4096 апр 22 18:42 devshare/
+ever@ubuntu-vm:~/homeworks/devs$ pwd
+/home/ever/homeworks/devs
+ever@ubuntu-vm:~/homeworks/devs$ cat > somefile
+asflkhj
+lkjhfa
+asdever@ubuntu-vm:~/homeworks/devs$ ll
+total 16
+drwxrwxr-x 3 ever ever 4096 апр 22 18:47 ./
+drwxrwxr-x 4 ever ever 4096 апр 22 18:42 ../
+drwxrwxr-x 2 ever ever 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 ever ever   18 апр 22 18:47 somefile
+ever@ubuntu-vm:~/homeworks/devs$ chgrp developer ../devs
+chgrp: changing group of '../devs': Operation not permitted
+ever@ubuntu-vm:~/homeworks/devs$ sudo chgrp developer ../devs
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 16
+drwxrwxr-x 3 ever developer 4096 апр 22 18:47 ./
+drwxrwxr-x 4 ever ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 ever ever      4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 ever ever        18 апр 22 18:47 somefile
+ever@ubuntu-vm:~/homeworks/devs$ sudo chgrp -R developer ../devs
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 16
+drwxrwxr-x 3 ever developer 4096 апр 22 18:47 ./
+drwxrwxr-x 4 ever ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 ever developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 ever developer   18 апр 22 18:47 somefile
+ever@ubuntu-vm:~/homeworks/devs$ cd ..
+ever@ubuntu-vm:~/homeworks$ ll
+total 16
+drwxrwxr-x  4 ever ever      4096 апр 22 18:42 ./
+drwxr-x--- 18 ever ever      4096 апр 22 16:17 ../
+drwxrwxr-x  3 ever developer 4096 апр 22 18:47 devs/
+drwxrwxr-x  2 ever ever      4096 апр 21 21:29 subdir/
+ever@ubuntu-vm:~/homeworks$ sudo usermod -aG adm  superstudent
+ever@ubuntu-vm:~/homeworks$ su superstudent
+Password: 
+$ pwd
+/home/ever/homeworks
+$ sudo chown superstudent /devs/            
+[sudo] password for superstudent: 
+superstudent is not in the sudoers file.  This incident will be reported.
+$ exit
+ever@ubuntu-vm:~/homeworks$ id
+uid=1000(ever) gid=1000(ever) groups=1000(ever),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare),999(vboxsf)
+ever@ubuntu-vm:~/homeworks$ sudo id superstudent
+uid=1100(superstudent) gid=0(root) groups=0(root),4(adm),1003(developer)
+ever@ubuntu-vm:~/homeworks$ less /etc/sudoers
+/etc/sudoers: Permission denied
+ever@ubuntu-vm:~/homeworks$ sudo less /etc/sudoers
+ever@ubuntu-vm:~/homeworks$ sudo usermod -aG sudo superstudent
+ever@ubuntu-vm:~/homeworks$ su superstudent
+Password: 
+$ sudo chown superstudent:developer devs/
+[sudo] password for superstudent: 
+$ ll
+sh: 2: ll: not found
+$ ls -l
+total 8
+drwxrwxr-x 3 superstudent developer 4096 апр 22 18:47 devs
+drwxrwxr-x 2 ever         ever      4096 апр 21 21:29 subdir
+$ cd devs
+sh: 4: cd: can't cd to devs
+$ exit    
+ever@ubuntu-vm:~/homeworks$ cd devs
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 16
+drwxrwxr-x 3 superstudent developer 4096 апр 22 18:47 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 ever         developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 ever         developer   18 апр 22 18:47 somefile
+ever@ubuntu-vm:~/homeworks/devs$ sudo usermod -s /bin/bash superstudent
+ever@ubuntu-vm:~/homeworks/devs$ su superstudent
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ ll
+ll: command not found
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ ls
+devshare  somefile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ ls -al
+total 16
+drwxrwxr-x 3 superstudent developer 4096 апр 22 18:47 .
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ..
+drwxrwxr-x 2 ever         developer 4096 апр 22 18:42 devshare
+-rw-rw-r-- 1 ever         developer   18 апр 22 18:47 somefile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ sudo chown superstudent -R ../devs/
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ ls -al
+total 16
+drwxrwxr-x 3 superstudent developer 4096 апр 22 18:47 .
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ..
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ touch somefile2
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ su practicestudent
+su: user practicestudent does not exist or the user entry does not contain all the required fields
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ exit
+exit
+ever@ubuntu-vm:~/homeworks/devs$ su practicestudent
+su: user practicestudent does not exist or the user entry does not contain all the required fields
+ever@ubuntu-vm:~/homeworks/devs$ su practiceuser
+Password: 
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ nano somefile2
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ ll
+total 16
+drwxrwxr-x 3 superstudent developer 4096 апр 22 19:02 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-r--r-- 1 superstudent root         0 апр 22 19:00 somefile2
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ sudo chgrp developer somefile2
+[sudo] password for practiceuser: 
+practiceuser is not in the sudoers file.  This incident will be reported.
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ exit
+exit
+ever@ubuntu-vm:~/homeworks/devs$ sudo chgrp developer somefile2
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 16
+drwxrwxr-x 3 superstudent developer 4096 апр 22 19:02 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-r--r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+ever@ubuntu-vm:~/homeworks/devs$ cd ..
+ever@ubuntu-vm:~/homeworks$ sudo chmod g+s devs/
+ever@ubuntu-vm:~/homeworks$ ll
+total 16
+drwxrwxr-x  4 ever         ever      4096 апр 22 18:42 ./
+drwxr-x--- 18 ever         ever      4096 апр 22 16:17 ../
+drwxrwsr-x  3 superstudent developer 4096 апр 22 19:02 devs/
+drwxrwxr-x  2 ever         ever      4096 апр 21 21:29 subdir/
+ever@ubuntu-vm:~/homeworks$ su practiceuser
+Password: 
+practiceuser@ubuntu-vm:/home/ever/homeworks$ cd devs/
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ nano somefile2
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ ll
+total 16
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:08 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-r--r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ cat > somefile3
+file from practice user
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ ll
+total 20
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:08 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-r--r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+-rw-r--r-- 1 practiceuser developer   24 апр 22 19:09 somefile3
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ exit
+exit
+ever@ubuntu-vm:~/homeworks$ umask
+0002
+ever@ubuntu-vm:~/homeworks$ sudo chmod g+w ../devs/
+chmod: cannot access '../devs/': No such file or directory
+ever@ubuntu-vm:~/homeworks$ sudo chmod g+w devs/
+ever@ubuntu-vm:~/homeworks$ ll
+total 16
+drwxrwxr-x  4 ever         ever      4096 апр 22 18:42 ./
+drwxr-x--- 18 ever         ever      4096 апр 22 16:17 ../
+drwxrwsr-x  3 superstudent developer 4096 апр 22 19:08 devs/
+drwxrwxr-x  2 ever         ever      4096 апр 21 21:29 subdir/
+ever@ubuntu-vm:~/homeworks$ sudo chmod -R  g+w devs/
+ever@ubuntu-vm:~/homeworks$ cd devs
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 20
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:08 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+-rw-rw-r-- 1 practiceuser developer   24 апр 22 19:09 somefile3
+ever@ubuntu-vm:~/homeworks/devs$ su superstudent
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ nano somefile3
+Unable to create directory /home/superstudent/.local/share/nano/: No such file or directory
+It is required for saving/loading search history or cursor positions.
+
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ ll
+ll: command not found
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ ls -al
+total 20
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 .
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ..
+drwxrwxr-x 2 superstudent developer 4096 апр 22 18:42 devshare
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+-rw-rw-r-- 1 practiceuser developer   55 апр 22 19:12 somefile3
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ exit
+exit
+ever@ubuntu-vm:~/homeworks/devs$ sudo chmod -R g+s,o+t devshare/
+ever@ubuntu-vm:~/homeworks/devs$ ll
+total 20
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 ./
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ../
+drwxrwsr-t 2 superstudent developer 4096 апр 22 18:42 devshare/
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+-rw-rw-r-- 1 practiceuser developer   55 апр 22 19:12 somefile3
+ever@ubuntu-vm:~/homeworks/devs$ su superstudent
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+superstudent@ubuntu-vm:/home/ever/homeworks/devs$ cd devshare/
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ touch superfile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ ll
+ll: command not found
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ ls
+superfile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ ls -al
+total 8
+drwxrwsr-t 2 superstudent developer 4096 апр 22 19:14 .
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 ..
+-rw-r--r-- 1 superstudent developer    0 апр 22 19:14 superfile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ umask
+0022
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ umask 002
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ umask
+0002
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ sudo chmod 664 superfile
+[sudo] password for superstudent: 
+Sorry, try again.
+[sudo] password for superstudent: 
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ ls -al
+total 8
+drwxrwsr-t 2 superstudent developer 4096 апр 22 19:14 .
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 ..
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:14 superfile
+superstudent@ubuntu-vm:/home/ever/homeworks/devs/devshare$ exit
+exit
+ever@ubuntu-vm:~/homeworks/devs$ su practiceuser
+Password: 
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ cd devshare
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ touch prfile
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ ls -al
+total 8
+drwxrwsr-t 2 superstudent developer 4096 апр 22 19:18 .
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 ..
+-rw-r--r-- 1 practiceuser developer    0 апр 22 19:18 prfile
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:14 superfile
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ umask 002
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ sudo chmod 664 prfile
+[sudo] password for practiceuser: 
+practiceuser is not in the sudoers file.  This incident will be reported.
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ chmod 664 prfile
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ ls -al
+total 8
+drwxrwsr-t 2 superstudent developer 4096 апр 22 19:18 .
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 ..
+-rw-rw-r-- 1 practiceuser developer    0 апр 22 19:18 prfile
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:14 superfile
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ id
+uid=1001(practiceuser) gid=1002(prgroup) groups=1002(prgroup),1003(developer)
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ rm superfile
+rm: cannot remove 'superfile': Operation not permitted
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs/devshare$ cd ..
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ ls -al
+total 20
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:12 .
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ..
+drwxrwsr-t 2 superstudent developer 4096 апр 22 19:18 devshare
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-rw-r-- 1 superstudent developer    0 апр 22 19:00 somefile2
+-rw-rw-r-- 1 practiceuser developer   55 апр 22 19:12 somefile3
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ rm somefile2
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ ls -al
+total 20
+drwxrwsr-x 3 superstudent developer 4096 апр 22 19:21 .
+drwxrwxr-x 4 ever         ever      4096 апр 22 18:42 ..
+drwxrwsr-t 2 superstudent developer 4096 апр 22 19:18 devshare
+-rw-rw-r-- 1 superstudent developer   18 апр 22 18:47 somefile
+-rw-rw-r-- 1 practiceuser developer   55 апр 22 19:12 somefile3
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ history
+    1  whoami
+    2  id
+    3  exit
+    4  nano somefile2
+    5  ll
+    6  sudo chgrp developer somefile2
+    7  exit
+    8  cd devs/
+    9  nano somefile2
+   10  ll
+   11  cat > somefile3
+   12  ll
+   13  exit
+   14  cd devshare
+   15  touch prfile
+   16  ls -al
+   17  umask 002
+   18  sudo chmod 664 prfile
+   19  chmod 664 prfile
+   20  ls -al
+   21  id
+   22  rm superfile
+   23  cd ..
+   24  ls -al
+   25  rm somefile2
+   26  ls -al
+   27  history
+practiceuser@ubuntu-vm:/home/ever/homeworks/devs$ exit
+exit
+ever@ubuntu-vm:~/homeworks/devs$ history
+    1  sudo useradd -s /bin/bash -m -d /home/practiceuser practiceuser
+    2  tal /etc/passwd
+    3  tail /etc/passwd
+    4  cd /home/
+    5  ls
+    6  cd ..
+    7  cat /etc/group
+    8  sudo adduser fastuser2
+    9  sudo passwd practiceuser
+   10  sudo tail /etc/shadow
+   11  tail /etc/passwd
+   12  sudo ls -al /home/fastuser2
+   13  sudo userdel -r fastuser2
+   14  sudo ls -al /home/fastuser2
+   15  tail /etc/passwd
+   16  sudo groupadd prgroup
+   17  tail -n 3 /etc/group
+   18  sudo id practiceuser 
+   19  sudo usermod -g prgroup practiceuser 
+   20  sudo id practiceuser 
+   21  sudo usermod -aG adm  practiceuser 
+   22  sudo id practiceuser 
+   23  usermod --help
+   24  sudo usermod -W 4 practiceuser 
+   25  sudo usermod -G practiceuser 
+   26  sudo usermod -G -4 practiceuser 
+   27  sudo usermod -G -adm practiceuser 
+   28  groups --help
+   29  deluser --help
+   30  sudo deluser practiceuser adm
+   31  su practiceuser
+   32  useradd -h
+   33  sudo useradd -u 0 -g 0 -N  superstudent
+   34  sudo useradd -u 1100 -g 0 -N  superstudent
+   35  sudo id superstudent
+   36  sudo passwd superstudent 
+   37  su superstudent
+   38  visudo
+   39  sudo visudo
+   40  echo так как UID не 0, то рутовая группа такому пользователю не особо помогает
+   41  sudo groupadd developer
+   42  tail /etc/passwd/
+   43  tail /etc/passwd
+   44  sudo useradd -g developer -N  devstudent
+   45  tail /etc/passwd
+   46  cd /home/
+   47  ll
+   48  cd ..
+   49  ll
+   50  cd ~
+   51  ll
+   52  cd homeworks/
+   53  mkdir -p devs/devshare/
+   54  ll
+   55  groups developer
+   56  members developer
+   57  member developer
+   58  sudo usermod -aG developer practiceuser 
+   59  sudo usermod -aG developer superstudent 
+   60  tail -n 3 /etc/group
+   61  cd devs/
+   62  ll
+   63  pwd
+   64  cat > somefile
+   65  ll
+   66  chgrp developer ../devs
+   67  sudo chgrp developer ../devs
+   68  ll
+   69  sudo chgrp -R developer ../devs
+   70  ll
+   71  cd ..
+   72  ll
+   73  sudo usermod -aG adm  superstudent
+   74  su superstudent
+   75  id
+   76  sudo id superstudent
+   77  less /etc/sudoers
+   78  sudo less /etc/sudoers
+   79  sudo usermod -aG sudo superstudent
+   80  su superstudent
+   81  cd devs
+   82  ll
+   83  sudo usermod -s /bin/bash superstudent
+   84  su superstudent
+   85  su practicestudent
+   86  su practiceuser
+   87  sudo chgrp developer somefile2
+   88  ll
+   89  cd ..
+   90  sudo chmod g+s devs/
+   91  ll
+   92  su practiceuser
+   93  umask
+   94  sudo chmod g+w ../devs/
+   95  sudo chmod g+w devs/
+   96  ll
+   97  sudo chmod -R  g+w devs/
+   98  cd devs
+   99  ll
+  100  su superstudent
+  101  sudo chmod -R g+s,o+t devshare/
+  102  ll
+  103  su superstudent
+  104  su practiceuser
+  105  history
+ever@ubuntu-vm:~/homeworks/devs$ 

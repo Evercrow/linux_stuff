@@ -1,0 +1,23 @@
+sudo apt install
+sudo apt upgrade
+sudo apt update
+ip a - список интерфейсов 
+
+systemctl status ssh , port 22
+
+ssh -p port_num username@hostname (@localhost) - при NAT проброс портов с 22 Ubuntu на port_num
+
+
+hostnamectl
+
+uname
+
+uname -a
+
+who
+
+whoami
+
+history - список введеных в оболочку команд, лежит в .bash_history
+	-c - очистить
+

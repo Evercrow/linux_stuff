@@ -1,0 +1,165 @@
+Задание:
+1. Установить Nginx
+2. * настроить Nginx на работу с PHP-FPM.
+3. Установить Apache.
+4. * Настроить обработку PHP. Добиться одновременной работы с Nginx.
+5. Настроить схему обратного прокси для Nginx (динамика - на Apache).
+6. Установить MySQL. Создать новую базу данных и таблицу в ней.
+7. * Установить пакет phpmyadmin и запустить его веб-интерфейс для управления MySQL.
+
+
+
+    1  sudo apt install nginx
+    2  nginx -t
+    3  sudo nginx -t
+    4  ss -ntlp
+    5  ps auf
+    6  ps aux
+    7  sudo ip-tables -L
+    8  sudo iptables -L
+    9  ip-tables -h
+   10  iptables -h
+   11  cd ~
+   12  ll
+   13  cat hw5.rules 
+   14  sudo apt nginx -purge
+   15  sudo apt search ppa-purge
+   16  sudo apt install ppa-purge
+   17  sudo ppa-purge http://nginx.org/packages/ubuntu
+   18  cat /etc/apt/sources.list.d/nginx.list
+   19  rm /etc/apt/sources.list.d/nginx.list
+   20  sudo rm /etc/apt/sources.list.d/nginx.list
+   21  sudo apt purge nginx
+   22  sudo apt install nginx
+   23  ss -ntlp
+   24  ps aux -tail
+   25  ps aux | tail -10
+   26  curl localhost
+   27  sudo search php-frpm
+   28  sudo search php-fpm
+   29  sudo apt search php-fpm
+   30  sudo apt search php
+   31  sudo apt install php-fpm
+   32  nano /etc/nginx/nginx.conf 
+   33  sudo nano /etc/nginx/sites-enabled/default 
+   34  nginx -t
+   35  sudo nginx -t
+   36  sudo systemctl status php*
+   37  cd /var/www/html/
+   38  cat > info.php
+   39  sudo cat > info.php
+   40  ll
+   41  sudo su
+   42  less info.php 
+   43  cat info.php
+   44  sudo nano info.php
+   45  cat info.php
+   46  sudo nginx -t
+   47  sudo systemctl reload nginx
+   48  curl localhost/info.php
+   49  apt search apache server
+   50  sudo apt install apache2 -y
+   51  sudo apachecatl -t
+   52  sudo apachectl -t
+   53  sudo nano /etc/apache2/apache2.conf 
+   54  cd /etc/apache2/
+   55  ll
+   56  sudo nano ports.conf 
+   57  sudo nano /etc/apache2/apache2.conf 
+   58  sudo apachectl -t
+   59  sudo systemctl start apache
+   60  sudo systemctl start apache2
+   61  sudo ss -ntlp
+   62  cd sites-enabled/
+   63  ll
+   64  sudo nano 000-default.conf 
+   65  sudo apachectl -t
+   66  sudo systemctl reload apache2
+   67  curl localohost:8081
+   68  curl localhost:8081
+   69  cd /etc/nginx/sites-enabled/
+   70  sudo nano default 
+   71  sudo cp default ../backup-site-conf
+   72  sudo nano default 
+   73  sudo apachectl -t
+   74  sudo systemctl reload apache2
+   75  sudo nano default 
+   76  sudo apachectl -t
+   77  sudo systemctl reload apache2
+   78  apt search mysql | grep server
+   79  sudo apt install mysql-server -y
+   80  sudo systemctl status mysql
+   81  ss -ntlp
+   82  sudo mysql -u root -p
+   83  sudo apt search phpmyadmin
+   84  sudo apt install phpmyadmin
+   85  sudo systemctl restart apache2
+   86  sudo apt install php-mbstring
+   87  sudo ss -ntlp
+   88  sudo apt purge phpmyadmin 
+   89  sudo apt install phpmyadmin 
+   90  sudo systemctl restart apache2
+   91  sudo phpenmod mbstring
+   92  cd /etc/apache2/
+   93  ll
+   94  cd conf-enabled/
+   95  ll
+   96  nano phpmyadmin.conf 
+   97  cd ..
+   98  sudo nano apache2.conf 
+   99  sudo apachectl -t
+  100  sudo nano apache2.conf 
+  101  sudo systemctl restart apache2
+  102  sudo nano apache2.conf 
+  103  sudo systemctl reload apache2
+  104  sudo nano apache2.conf 
+  105  sudo nano /etc/nginx/sites-enabled/default 
+  106  history
+
+
+
+  Кусок конфига сайта для fastCGI
+
+        # pass PHP scripts to FastCGI server
+        #
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+        #
+        #       # With php-fpm (or other unix sockets):
+                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        #       # With php-cgi (or other tcp sockets):
+        #       fastcgi_pass 127.0.0.1:9000;
+        }
+		
+	Кусок конфига сайта для обратного прокси в Апач
+		
+      server_name myngi.ru www.myngi.ru;
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
+        #все,что не попало в регулярку статики идет динамикой на апач, порт 8081
+        location / {
+                proxy_pass http://localhost:8081;
+                proxy_set_header Host $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Real-IP $remote_addr;
+                }
+        #статика
+        location ~* ^.+.(jpg|jpeg|gif|png|ico|css|zip|pdf|txt|tar|js)$ {
+                root /var/www/html;
+                }
+
+
+	Табличка в SQL
+			mysql> select * from t1;
+		+----+-------+
+		| id | name  |
+		+----+-------+
+		|  1 | vasya |
+		|  2 | petya |
+		+----+-------+
+		2 rows in set (0,00 sec)
+
