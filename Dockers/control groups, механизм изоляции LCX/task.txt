@@ -1,0 +1,69 @@
+Задание 1:
+1) запустить контейнер с ubuntu, используя механизм LXC
+2) ограничить контейнер 256 Мб ОЗУ и проверить, что ограничение работает
+Оценка Отлично
+
+Задание 2*: настроить автоматическую маршрутизацию между контейнерами. Адреса можно взять: 10.0.12.0/24 и 10.0.13.0/24. e.x. sudo lxc-create -n test123 -t ubuntu -f /usr/share/doc/lxc/examples/lxc-veth.conf (файл может лежать по другому путь, можно найти командой sudo find / -name lxc-veth.conf)
+Выполнять не обязательно
+
+попытка - 
+   11  sudo find / -name lxc-veth.conf
+   12  vi /usr/share/doc/liblxc-common/examples/lxc-veth.conf
+   13  cp /usr/share/doc/liblxc-common/examples/lxc-veth.conf .
+   14  ls
+   15  nano lxc-veth.conf
+   16  ls
+   17  apt --installed list | grep "bridge"
+   18  sudo lxc-create -n vbridge_test -t ubuntu -f ./lxc-veth1.conf
+   19  ps aux
+   20  lxc --help
+   21  lxc-help
+   22  lxc-stop -n test-gb-4
+   23  lxc-ls -f
+   24  lxc-info -n test-gb-4
+   25  lxc-info -n vbridge_test
+   26* sudo lxc-start -n vbridge_test
+   27  lxc-start -n test-gb-4
+   28  sudo lxc-info -n vbridge_test
+   29  sudo lxc-info -n test-gb-4
+   30  sudo lxc-stop -n test-gb-4
+   31  sudo lxc-info -n test-gb-4
+   32  ip -a
+   33  ip a
+   34  sudo lxc-start -n vbridge_test
+   35  sudo lxc-start -n -d vbridge_test
+   36  ls sys/fs/cgroup/
+   37  ls /sys/fs/cgroup/
+   38  sdsdsadssdasd
+   39  his
+   40  sudo lxc-start -n vbridge_test -f ./lxc-veth1.conf
+   41  sudo lxc-ls -f
+   42  lxc-start -n vbridge_test
+   43  sudo lxc-start -n vbridge_test
+   44  sudo lxc-start -n vbridge_test -f
+   45  sudo lxc-start -n vbridge_test -F
+   46  ip link show
+   47  sudo ip set lxcbr0 up
+   48  sudo ip link set lxcbr0 up
+   49  ip link show
+   50  ls
+   51  nano lxc-veth1.conf поменяем дефолтный мост в контейнере на lxcbr0
+   52  sudo lxc-start -F -n vbridge_test
+   53  sudo lxc-start -F -n vbridge_test -f .lxc-veth1.conf
+   54  sudo lxc-start -F -n vbridge_test -f ./lxc-veth1.conf
+
+lxc-start: vbridge_test: conf.c: lxc_transient_proc: 3813 No such file or directory - Failed to mount temporary procfs
+lxc-start: vbridge_test: conf.c: bind_mount_console: 1946 No such file or directory - Failed to open "/dev/pts/2"
+lxc-start: vbridge_test: conf.c: lxc_setup_dev_console: 2000 No such file or directory - Failed to mount "7(/dev/pts/2)" on "21"
+lxc-start: vbridge_test: conf.c: lxc_setup_console: 2156 No such file or directory - Failed to setup console
+lxc-start: vbridge_test: conf.c: lxc_setup: 4434 Failed to setup console
+lxc-start: vbridge_test: start.c: do_start: 1275 Failed to setup container "vbridge_test"
+lxc-start: vbridge_test: sync.c: sync_wait: 34 An error occurred in another process (expected sequence number 4)
+lxc-start: vbridge_test: start.c: __lxc_start: 2074 Failed to spawn container "vbridge_test"
+lxc-start: vbridge_test: tools/lxc_start.c: main: 306 The container failed to start
+lxc-start: vbridge_test: tools/lxc_start.c: main: 311 Additional information can be obtained by setting the --logfile and --logpriority options
+
+не запускается из-за параметров виртуального интерфейса?
+
+
+
