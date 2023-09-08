@@ -1,0 +1,35 @@
+    1  cd homeworks/
+    2  dir
+    3  cd dockers/
+    4  mkdir 3
+    5  cd 3
+    6  mkdir maria_mydb
+    7  docker run --help
+    8  docker run --name mariadb-test -e MARIADB_ROOT_PASSWORD = 12345 -v ./maria_mydb:/var/lib/mysql -d mariadb:10.10.2
+    9  docker run --name mariadb-test -e MARIADB_ROOT_PASSWORD=12345 -v ./maria_mydb:/var/lib/mysql -d mariadb:10.10.2
+   10  sudo docker run --name mariadb-test -e MARIADB_ROOT_PASSWORD=12345 -v ./maria_mydb:/var/lib/mysql -d mariadb:10.10.2
+   11  pw
+   12  pwd
+   13  ls
+   14  sudo docker run --name mariadb-test -e MARIADB_ROOT_PASSWORD=12345 -v /home/ever/homeworks/dockers/3/maria_mydb:/var/lib/mysql -d mariadb:10.10.2
+   15  ps
+   16  docker ps
+   17  sudo docker ps
+   18  cd maria_mydb/
+   19  ls -l
+   20  docker exec -it mariadb-test bash
+   21  sudo docker exec -it mariadb-test bash
+   22  sudo docker run --name php-myadmin-1 -d --link mariadb-test:db -p 8081:80 phpmyadmin
+   23  sudo docker run --name php-myadmin-1 -d --link mariadb-test:db -p 8083:80 phpmyadmin
+   24  sudo docker rm php-myadmin-1
+   25  sudo docker run --name php-myadmin-1 -d --link mariadb-test:db -p 8083:80 phpmyadmin
+   26  docker ps
+   27  sudo docker ps
+   28  ls -l
+   29  cd notes
+   30  sudo notes
+   31  sudo cd  notes
+   32  cat notes
+   33  sudo cat notes
+   34  cd notes -s
+   35  history

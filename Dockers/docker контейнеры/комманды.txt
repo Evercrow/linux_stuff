@@ -1,0 +1,20 @@
+docket -i - t run image_name command_name
+	-d - detach режим
+	-h - сменить хост на запускаемый контейнер
+	по умолчанию закрывает контейнер, если в нем не запущены процессы(прописывается настройка в Dockerfile)
+docker exec ... - такая вариация не завершит автоматом контейнер
+docker ps
+
+docker start id_container 
+docker volume ls - список виртуальных дисков под контейнеры
+docker stop id_container
+
+работы с БД:
+mysql -u root -p
+
+psql -d db_name -U user_name
+
+sudo docker run --name psql-1 -e POSTGRES_PASSWORD=test100 -e PGDATA=/var/lib/postgresql/data/pgdata -v /home/ever/homeworks/dockers/3/postgre_vol:/var/lib/postgresql/data -d postgres:14.9
+
+sudo docker run --name adminer-psql --link psql-1:db -p 5432:8080 -d adminer:4-standalone
+
