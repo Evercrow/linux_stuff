@@ -1,0 +1,16 @@
+1  docker swarm init
+    3  docker node ls
+    4  docker node update --label-add test-server xrymz6xflqz9wd3xwi8x4oj38
+    5  docker node ls
+    6  docker service create --name nginx --label test-server --replicas 3 nginx:alpine;
+    7  docker ps
+    9  docker exec -it d87de9a321f1 bash
+   10  docker exec -it d87de9a321f1 sh
+        curl localhost:80
+   11  history
+
+Настраиваем сетку, чтобы машины друг друга пинговали.
+На основном компьютере поднимаем docker swarm, он становится manager-узлом
+Подключаем машину командой с токеном. Она появляется как slave в списке узлов.
+Теперь можем деплоить контейнеры , в том числе из docker-compose, и swarm сам будет сбалансировано распределять контейнеры по машинам.
+В случае с деплоем реплик одного и того же контейнера, на мастере должна быть хотя бы одна реплика(автоматически установится)
