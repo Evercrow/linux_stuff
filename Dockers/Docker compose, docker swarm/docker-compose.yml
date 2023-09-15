@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:10.10.2
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: 12345
+    volumes:
+     - /home/ever/homeworks/dockers/5/maria_mydb:/var/lib/mysql
+    deploy:
+      mode: replicated
+      replicas: 1
+  web-ui:
+    image: phpmyadmin:5
+    restart: on-failure
+    ports: 
+      - 5080:80 
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 3s
+        max_attempts: 5
+        window: 60s
